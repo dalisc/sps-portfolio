@@ -46,7 +46,7 @@ function addRandomMeme() {
   var img = document.createElement('img');
   img.src = imgSource;
   img.alt = "meme";
-  img.width = "300";
+  img.width = "600";
 
   // Remove the current image, if any
   const memeContainer = document.getElementById('meme-container');
