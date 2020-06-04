@@ -32,12 +32,12 @@ function addRandomGreeting() {
  */
 function addRandomMeme() {
   const imgSources =
-      ['https://i.chzbgr.com/full/9340630528/hFC589711/spotify-playlist-songs-about-git',
-      'https://www.probytes.net/wp-content/uploads/2018/01/3.jpg!',
-      'https://scontent-xsp1-1.xx.fbcdn.net/v/t1.15752-9/59408853_2016918848436701_5907180139245993984_n.png?_nc_cat=110&_nc_sid=b96e70&_nc_ohc=faMQj0KFoPwAX8eRmA1&_nc_ht=scontent-xsp1-1.xx&oh=cf34b166e78195d2efd71eb1446126d6&oe=5EFEE7F2',
-      'https://qph.fs.quoracdn.net/main-qimg-50da7dacced9bcc11c246394388fc911.webp',
-      'https://miro.medium.com/max/3200/0*FL03kQRXT_TFerSD',
-      'https://cdn-images-1.medium.com/max/1600/1*OVo5mxqgkAs8x8rZloCD8A.png'];
+      ['images/meme1.jpg',
+      'images/meme2.jpg',
+      'images/meme3.jpg',
+      'images/meme4.jpg',
+      'images/meme5.jpg',
+      'images/meme6.jpg'];
 
   // Pick a random url.
   const imgSource = imgSources[Math.floor(Math.random() * imgSources.length)];
