@@ -26,3 +26,35 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+/**
+ * Adds a random greeting to the page.
+ */
+function addRandomMeme() {
+  const imgSources =
+      ['images/meme1.jpg',
+      'images/meme2.jpg',
+      'images/meme3.jpg',
+      'images/meme4.jpg',
+      'images/meme5.jpg',
+      'images/meme6.jpg'];
+
+  // Pick a random url.
+  const imgSource = imgSources[Math.floor(Math.random() * imgSources.length)];
+
+  // Create an image element
+  var img = document.createElement('img');
+  img.src = imgSource;
+  img.alt = "meme";
+  img.width = "600";
+
+  // Remove the current image, if any
+  const memeContainer = document.getElementById('meme-container');
+  if (memeContainer.firstChild) {
+      memeContainer.removeChild(memeContainer.firstChild);
+  }
+
+  // Add it to the page.
+  memeContainer.appendChild(img);
+}
+
