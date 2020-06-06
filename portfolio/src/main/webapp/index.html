@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <title>Dalis Chan</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="fonts.css" />
     <script src="script.js"></script>
+    <!-- FontAwesome icons -->
+    <script
+      src="https://kit.fontawesome.com/bf05d78857.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <!-- Header -->
@@ -191,11 +195,21 @@
           diving anywhere I can afford. I love beaches so much and I can't
           believe I didn't discover SCUBA diving earlier!
         </p>
+        <p>
+          Last summer, I also bought an old film camera and just pointed and
+          shoot stuff. Here are some pictures that developed quite nicely! There
+          was one roll where I accidentally used the same roll twice and had
+          some accidental double exposures.
+        </p>
       </section>
     </main>
 
     <footer>
-      &copy;2018 Footer
+      <div class="social">
+        <a id="social-icon" href="https://github.com/dalisc/"><i class="fab fa-github icon-3x"></i></a>
+        <a id="social-icon" href="https://www.linkedin.com/in/dalisc/"><i class="fab fa-linkedin"></i></a>
+        <a id="social-icon" href="mailto:dalischan97@gmail.com"><i class="fas fa-envelope-open-text"></i></a>
+      </div>
     </footer>
 
     <script>
@@ -205,15 +219,6 @@
 
       let lastId
       let cur = []
-
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
 
       window.addEventListener('scroll', event => {
         let fromTop = window.scrollY
