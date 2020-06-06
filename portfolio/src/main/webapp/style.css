@@ -44,8 +44,9 @@ nav ul {
 nav ul li a {
   display: block;
   padding: 0.5rem 1rem;
-  color: #f4f6ff;
+  color: #f8f3eb;
   text-decoration: none;
+  text-transform: uppercase;
 }
 nav ul li a:hover {
   background: #127681;
@@ -61,7 +62,8 @@ body {
   display: grid;
   grid-template-columns: min-content 1fr;
   font-family: system-ui, sans-serif;
-  color: #10375c
+  color: #10375c;
+  background-color: #f8f3eb;
 
   /* this breaks position sticky in Firefox */
   /* overflow-x: hidden; */
@@ -73,11 +75,19 @@ a {
 }
 
 main {
+  padding-top: 2rem;
   padding-bottom: 10rem;
+  width: 90%;
+  margin: auto;
 }
 section {
   padding: 2rem;
   margin: 0 0 2rem 0;
+}
+
+/* Solid border */
+hr.solid {
+  border-top: 2px solid #e5e5e5;
 }
 
 /* Footer */
