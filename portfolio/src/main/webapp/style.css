@@ -1,3 +1,8 @@
+::selection {
+  background-color: #127681;
+  color: #f1f1f1;
+  }
+
 html {
   scroll-behavior: smooth;
 }
@@ -22,6 +27,17 @@ header {
   text-align: center;
 }
 
+/* Colorize-zoom Container */
+.img-hover-zoom--colorize img {
+  transition: transform .5s, filter 1.5s ease-in-out;
+  filter: grayscale(100%);
+}
+
+/* The Transformation */
+.img-hover-zoom--colorize:hover img {
+  filter: grayscale(0);
+  transform: scale(1.1);
+}
 .profile-img {
   border-radius: 50%;
   height: 150px;
@@ -58,6 +74,14 @@ nav ul li a.current {
   background: #f3c623;
   color: #10375c;
 }
+
+/* Main content */
+.dropcap {
+  float: left;
+  font-size: 400%;
+  color: #cf142b;
+  margin: -13px 7px -13px 0;
+  }
 main {
   padding-bottom: 40rem;
 }
