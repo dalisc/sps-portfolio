@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <title>Dalis Chan</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+    <script type="text/javascript" src="assets/js/nav.js"></script>
+
     <!-- FontAwesome icons -->
     <script
       src="https://kit.fontawesome.com/bf05d78857.js"
@@ -293,31 +295,5 @@
         </div>
       </div>
     </footer>
-
-    <script>
-      // active navbar
-      let mainNavLinks = document.querySelectorAll('nav ul li a')
-      let mainSections = document.querySelectorAll('main section')
-
-      let lastId
-      let cur = []
-
-      window.addEventListener('scroll', event => {
-        let fromTop = window.scrollY
-
-        mainNavLinks.forEach(link => {
-          let section = document.querySelector(link.hash)
-
-          if (
-            section.offsetTop <= fromTop &&
-            section.offsetTop + section.offsetHeight > fromTop
-          ) {
-            link.classList.add('current')
-          } else {
-            link.classList.remove('current')
-          }
-        })
-      })
-    </script>
   </body>
 </html>
