@@ -7,6 +7,10 @@ html {
   scroll-behavior: smooth;
 }
 
+p {
+  text-align: justify;
+}
+
 /* header */
 
 header {
@@ -14,7 +18,11 @@ header {
   background: #f3c623;
   color: #10375c;
   padding: 4rem;
-  text-align: center;
+  text-align: center !important;
+}
+
+header p {
+  text-align: center !important;
 }
 
 .profile-img {
@@ -163,7 +171,8 @@ button {
 /* Content Image */
 .content-img {
   border-radius: 2px;
-  height: 150px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 /* Tooltip */
@@ -204,11 +213,11 @@ button {
   visibility: visible;
 }
 
-/* Image gallery */
+/* Image gallery grid */
 
 #image-gallery-container {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: 20% 20% 20% 20% 20%;
   column-gap: 5px;
   padding: 10px;
 }
@@ -216,4 +225,19 @@ button {
 #image-gallery-container img {
   width: 100%;
   border-radius: 2px;
+}
+
+/* Projects grid*/
+#hackathons-wrapper {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 30px;
+  justify-content: center;
+}
+
+#other-projects-wrapper {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 30px;
+  justify-content: center;
 }
