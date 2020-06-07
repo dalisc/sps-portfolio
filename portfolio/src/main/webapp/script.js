@@ -15,6 +15,11 @@
 /**
  * Creates images for photography gallery
  */
+
+document.addEventListener("DOMContentLoaded", function(){
+  addFilmImages();
+});
+
 function addFilmImages() {
   const fileNames = [
     "1-dalis.jpg",
@@ -80,4 +85,18 @@ function addFilmImages() {
     // Append the image wrapper to the container.
     imagesContainer.appendChild(wrapper);
   });
+}
+
+function toggleImageGallery() {
+  var gallery = document.getElementById("image-gallery-wrapper");
+  var toggleButton = document.getElementById("view-gallery-button")
+  if (gallery.style.display === "none") {
+    gallery.style.display = "block";
+    toggleButton.innerHTML = "close gallery"
+
+  } else {
+    gallery.style.display = "none";
+    toggleButton.innerHTML = "view image gallery"
+
+  }
 }

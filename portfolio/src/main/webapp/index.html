@@ -203,8 +203,12 @@
           was one roll where I accidentally used the same roll twice and had
           some accidental double exposures.
         </p>
-        <button onclick="addFilmImages()">View Image Gallery</button>
+        <div id="wrapper-center">
+        <button id="view-gallery-button" onclick="toggleImageGallery()">View Image Gallery</button>
+      </div>
+        <div id="image-gallery-wrapper" style="display: none;">
         <div id="image-gallery-container"></div>
+      </div>
       </section>
     </main>
 
