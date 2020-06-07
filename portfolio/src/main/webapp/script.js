@@ -74,7 +74,7 @@ function addFilmImages() {
   fileNames.forEach((fileName) => {
     // Create a wrapper for zool colorize effect
     var wrapper = document.createElement("div");
-    wrapper.className = "img-hover-zoom";
+    wrapper.className = "img-hover-zoom img-hover-zoom-gallery";
     // Create an image element
     var img = document.createElement("img");
     img.src = "images/photography/" + fileName;

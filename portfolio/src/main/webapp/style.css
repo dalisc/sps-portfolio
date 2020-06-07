@@ -147,13 +147,23 @@ button {
   transform: scale(1.1);
 }
 
-/* Zoom into image on hover */
+/* Zoom into image on hover*/
 .img-hover-zoom img {
   transition: transform 0.5s ease;
 }
 
-.img-hover-zoom:hover img {
+.img-hover-zoom-gallery:hover img {
   transform: scale(1.8);
+}
+
+.img-hover-zoom-content:hover img {
+  transform: scale(1.1);
+}
+
+/* Content Image */
+.content-img {
+  border-radius: 2px;
+  height: 150px;
 }
 
 /* Tooltip */

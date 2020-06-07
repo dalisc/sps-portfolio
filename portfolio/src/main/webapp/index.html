@@ -37,11 +37,10 @@
         <p id="content">
           Hey there! I'm Dalis. I'm a Year 3 computer science undergrad at the
           National University of Singapore. I love programming, especially web
-          development. In my spare time, I'm eithet playing tennis or binging
-          Netflix!
+          development. Read on more to find out what I do at school and in my spare time!
         </p>
       </section>
-      <hr class="solid">
+      <hr class="solid" />
       <section id="projects">
         <h1>My Projects</h1>
         <p>
@@ -52,31 +51,49 @@
 
         <h2>Tech Hackathons</h2>
 
-        <a href="" target="_blank"><h3>SpotNow (Hack.Asia 2019)</h3></a>
+        <a href="https://www.agorize.com/en/challenges/hack-asia" target="_blank"><h3>SpotNow (Hack.Asia 2019)</h3></a>
         <p>
+          <div class="img-hover-zoom img-hover-zoom-content">
+            <img class="content-img" src="images/hackasia-1.jpg" alt="Group photo at Hack.Asia 2019" />
+          </div>
           For the Daimler Empowering Mobility Challenge, my team and I pitched
           an idea for smartcars to help detect unreported road accidents. Our
           idea made it to the finals for which I prototyped a video analytics
           engine to detect vehicle accidents and plot accident hotspots on the
           map, using Django, Google Video Intelligence API, OpenWeatherMap API,
           and Mapbox. (Unfortunately, this repository was required to be
-          private!)
+          private, but you can view our slide deck
+          <a
+            href="https://docs.google.com/presentation/d/17gKR9tHiwbWK_A2qxeM65O9aadPURgUebY0kaDCBT1E/edit?usp=sharing"
+            target="_blank"
+            >here</a
+          >!)
         </p>
+
 
         <a href="https://github.com/dalisc/O.Life" target="_blank"
           ><h3>O.Life (Circles.Hack 2019)</h3></a
         >
+        <div class="img-hover-zoom img-hover-zoom-content">
+          <img class="content-img" src="images/circles-life-2.jpg" alt="Group photo at Circles.Hack 2019" />
+        </div>
+
         <p>
           This personalized recommendation engine was developed for a virtual
           hackathon organised by Circles.Life. It uses collaborative filtering
           to cluster similar users together and content-based filtering to
           recommend specific items to users in a cluster. We used various APIs
           to do semantic analysis on event and movie descriptions to see how
-          closely they match users' existing tastes and preferences.
+          closely they match users' existing tastes and preferences. We were
+          very proud to win the Most Innovative Award and the Diversity &
+          Inclusion Award.
         </p>
 
         <a href="" target="_blank"><h3>PokkaPet (Hackomania 2019)</h3></a>
         <p>
+          <div class="img-hover-zoom img-hover-zoom-content">
+            <img class="content-img" src="images/hackomania-1.jpg" alt="Group photo at HackOMania 2019" />
+          </div>
           I will always remember this as the hackathon where I won a Google Home
           Mini! My team and I developed a digital pet-themed diet tracker app
           using Unity and various Rapid Rapid APIs. We couldn't believe it when
@@ -90,7 +107,11 @@
             >here</a
           >
           to view our developer showcase on the Rakuten blog.
+
+
         </p>
+
+        
 
         <h2>Others</h2>
         <a href="https://github.com/dalisc/emoji-search-web" target="_blank"
@@ -115,7 +136,7 @@
           the javascript logic behind the app!
         </p>
       </section>
-      <hr class="solid">
+      <hr class="solid" />
       <section id="work">
         <h1>My Internship Experiences</h1>
         <a href="https://pawjourr.com" target="_blank"
@@ -178,7 +199,7 @@
           </li>
         </ul>
       </section>
-      <hr class="solid">
+      <hr class="solid" />
       <section id="interests">
         <h1>My Interests & Hobbies</h1>
         <p>
@@ -198,43 +219,49 @@
           diving anywhere I can afford.
         </p>
         <p>
-          Also, last summer, I also bought an old film camera and just pointed and
-          shoot stuff. Here are some pictures that developed quite nicely! There
-          was one roll where I accidentally used the same roll twice and had
-          some accidental double exposures.
+          Also, last summer, I also bought an old film camera and just pointed
+          and shoot stuff. Here are some pictures that developed quite nicely!
+          There was one roll where I accidentally used the same roll twice and
+          had some accidental double exposures.
         </p>
         <div id="wrapper-center">
-        <button id="view-gallery-button" onclick="toggleImageGallery()">View Image Gallery</button>
-      </div>
+          <button id="view-gallery-button" onclick="toggleImageGallery()">
+            View Image Gallery
+          </button>
+        </div>
         <div id="image-gallery-wrapper" style="display: none;">
-        <div id="image-gallery-container"></div>
-      </div>
+          <div id="image-gallery-container"></div>
+        </div>
       </section>
     </main>
 
     <footer>
       <div class="social">
         <div class="tooltip">
-          <a id="social-icon" href="https://github.com/dalisc/"
+          <a id="social-icon" href="https://github.com/dalisc/" target="_blank"
             ><i class="fab fa-github icon-3x"></i
           ></a>
           <span class="tooltiptext">GitHub profile</span>
         </div>
 
         <div class="tooltip">
-          <a id="social-icon" href="https://www.linkedin.com/in/dalisc/"
-          ><i class="fab fa-linkedin"></i
-        ></a>
+          <a
+            id="social-icon"
+            href="https://www.linkedin.com/in/dalisc/"
+            target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
           <span class="tooltiptext">LinkedIn profile</span>
         </div>
         <div class="tooltip">
-          <a id="social-icon" href="mailto:dalischan97@gmail.com"
-          ><i class="fas fa-envelope-open-text"></i
-        ></a>
+          <a
+            id="social-icon"
+            href="mailto:dalischan97@gmail.com"
+            target="_blank"
+            ><i class="fas fa-envelope-open-text"></i
+          ></a>
           <span class="tooltiptext">Email me</span>
         </div>
-
-
       </div>
     </footer>
 
