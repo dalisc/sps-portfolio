@@ -16,6 +16,7 @@ p {
 header {
   grid-column: 1 / 3;
   background: #f3c623;
+  background-image: linear-gradient(#f3c623, #f8b24f);
   color: #10375c;
   padding: 4rem;
   text-align: center !important;
@@ -28,6 +29,10 @@ header p {
 .profile-img {
   border-radius: 50%;
   height: 150px;
+}
+
+.header-image {
+  width: 100%;
 }
 
 /* navbar */
@@ -101,6 +106,8 @@ hr.solid {
 footer {
   grid-column: 1 / 3;
   background: #127681;
+  background-image: linear-gradient(#10375c, #127681);
+
 }
 
 .social {
@@ -116,7 +123,7 @@ footer {
 }
 
 #social-icon {
-  color: #10375c !important;
+  color: #f4f6ff !important;
 }
 
 /* Button */
@@ -234,10 +241,3 @@ button {
   column-gap: 30px;
   justify-content: center;
 }
-/* 
-#other-projects-wrapper {
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 30px;
-  justify-content: center;
-} */
