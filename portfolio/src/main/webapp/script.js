@@ -13,48 +13,71 @@
 // limitations under the License.
 
 /**
- * Adds a random greeting to the page.
+ * Creates images for photography gallery
  */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+function addFilmImages() {
+  const fileNames = [
+    "1-dalis.jpg",
+    "1-dog1.jpg",
+    "1-valley1.jpg",
+    "1-dog2.jpg",
+    "1-fog.jpg",
+    "1-halo.jpg",
+    "1-mountains.jpg",
+    "1-houses2.jpg",
+    "1-people.jpg",
+    "1-silhouette.jpg",
+    "1-sunrise.jpg",
+    "2-bridge.jpg",
+    "2-farm.jpg",
+    "2-horse.jpg",
+    "2-sky1.jpg",
+    "2-forest.jpg",
+    "2-silhouette2.jpg",
+    "2-sky2.jpg",
+    "2-sunrise2.jpg",
+    "3-plane.jpg",
+    "3-waterfall.jpg",
+    "3-cliff.jpg",
+    "3-mountain.jpg",
+    "3-wave.jpg",
+    "3-boats.jpg",
+    "4-vivocity2.jpg",
+    "4-vivocity3.jpg",
+    "4-vivocity1.jpg",
+    "4-jewel3.jpg",
+    "4-lightleak.jpg",
+    "4-jewel1.jpg",
+    "4-jewel5.jpg",
+    "4-jewel2.jpg",
+    "4-jewel4.jpg",
+    "4-mrt.jpg",
+    "4-universitytown.jpg",
+    "5-dexposed1.jpg",
+    "5-dexposed10.jpg",
+    "5-dexposed2.jpg",
+    "5-dexposed3.jpg",
+    "5-dexposed4.jpg",
+    "5-dexposed5.jpg",
+    "5-dexposed6.jpg",
+    "5-dexposed8.jpg",
+    "5-dexposed9.jpg",
+  ];
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+  const imagesContainer = document.getElementById("image-gallery-container");
 
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+  fileNames.forEach((fileName) => {
+    // Create a wrapper for zool colorize effect
+    var wrapper = document.createElement("div");
+    wrapper.className = "img-hover-zoom";
+    // Create an image element
+    var img = document.createElement("img");
+    img.src = "images/photography/" + fileName;
+    img.alt = fileName;
+    img.class = "image-gallery-item";
+    // Put the image in the wrapper
+    wrapper.appendChild(img);
+    // Append the image wrapper to the container.
+    imagesContainer.appendChild(wrapper);
+  });
 }
-
-/**
- * Adds a random greeting to the page.
- */
-function addRandomMeme() {
-  const imgSources =
-      ['https://i.chzbgr.com/full/9340630528/hFC589711/spotify-playlist-songs-about-git',
-      'https://www.probytes.net/wp-content/uploads/2018/01/3.jpg!',
-      'https://scontent-xsp1-1.xx.fbcdn.net/v/t1.15752-9/59408853_2016918848436701_5907180139245993984_n.png?_nc_cat=110&_nc_sid=b96e70&_nc_ohc=faMQj0KFoPwAX8eRmA1&_nc_ht=scontent-xsp1-1.xx&oh=cf34b166e78195d2efd71eb1446126d6&oe=5EFEE7F2',
-      'https://qph.fs.quoracdn.net/main-qimg-50da7dacced9bcc11c246394388fc911.webp',
-      'https://miro.medium.com/max/3200/0*FL03kQRXT_TFerSD',
-      'https://cdn-images-1.medium.com/max/1600/1*OVo5mxqgkAs8x8rZloCD8A.png'];
-
-  // Pick a random url.
-  const imgSource = imgSources[Math.floor(Math.random() * imgSources.length)];
-
-  // Create an image element
-  var img = document.createElement('img');
-  img.src = imgSource;
-  img.alt = "meme";
-  img.width = "600";
-
-  // Remove the current image, if any
-  const memeContainer = document.getElementById('meme-container');
-  if (memeContainer.firstChild) {
-      memeContainer.removeChild(memeContainer.firstChild);
-  }
-
-  // Add it to the page.
-  memeContainer.appendChild(img);
-}
-
