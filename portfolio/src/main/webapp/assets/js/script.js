@@ -101,8 +101,19 @@ function toggleImageGallery() {
   }
 }
 
-function getGreeting() {
-    fetch("/data").then(response => response.text()).then((greeting) => {
-    document.getElementById("greeting-container").innerText = greeting;
+function getGreetings() {
+    fetch("/data").then(response => response.json()).then((greetings) => {
+        console.log(greetings);
+        console.log(Object.values(greetings));
+        const greetingsContainer = document.getElementById('greetings-container');
+        greetings.map((greeting) => greetingsContainer.appendChild(createListElement(greeting)));
+
   });
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
