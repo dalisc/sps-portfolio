@@ -100,3 +100,9 @@ function toggleImageGallery() {
 
   }
 }
+
+function getGreeting() {
+    fetch("/data").then(response => response.text()).then((greeting) => {
+    document.getElementById("greeting-container").innerText = greeting;
+  });
+}
