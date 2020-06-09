@@ -111,22 +111,60 @@ function getComments() {
   });
 }
 
-/** Creates some HTML that displays the comments */
+/** Creates some HTML that displays the comments 
+    A comment in HTML will look like below:
+    <div id="comment-wrapper">
+        <div id="comment-header">
+            <p id="username-display">daliscious123</p>
+            <p id="timestamp-display">Wed 10/06/2020 00:11:54 BNT</p>
+        </div>
+        <p id="comments-display">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Dapibus ultrices in iaculis nunc sed augue lacus. Quam nulla
+        porttitor massa id neque aliquam. Ultrices mi tempus imperdiet
+        nulla malesuada. Eros in cursus turpis massa tincidunt dui ut
+        ornare lectus.
+        </p>
+        <hr class="solid" />
+    </div>
+*/
 function createCommentSection(commentObj) {
-  // wrapper div
-  const commentWrapper = document.createElement('div');
-  commentWrapper.className = "comment-wrapper";
+
+  // comment wrapper div
+  const commentWrapper = document.createElement("div");
+  commentWrapper.id = "comment-wrapper";
+  // username and timestamp wrapper div
+  const headerWrapper = document.createElement("div");
+  headerWrapper.id = "comment-header";
+
+  // p tag elements
   // comments
-  const comments = document.createElement('p');
-  comments.className = "comment-display";
+  const comments = document.createElement("p");
+  comments.id = "comment-display";
   comments.innerHTML = commentObj.comments;
   // username
-  const username = document.createElement('p');
-  username.className = "username-display";
+  const username = document.createElement("p");
+  username.id = "username-display";
   username.innerHTML = commentObj.username;
+  // timestamp
+  const timestamp = document.createElement("p");
+  timestamp.id = "timestamp-display";
+  timestamp.innerHTML = commentObj.timestamp;
+
+  // divider between comments
+  const divider = document.createElement("hr");
+  divider.className = "solid";
+
+  // append the username and timestamp to the header wrapper
+  headerWrapper.appendChild(username);
+  headerWrapper.appendChild(timestamp);
+
   // append the nodes to the wrapper
-  commentWrapper.appendChild(comments)
-  commentWrapper.appendChild(username)
+  commentWrapper.appendChild(headerWrapper)
+  commentWrapper.appendChild(comments);
+  commentWrapper.append(divider);
+
   // returns the comment wrapper containing comments and username
   console.log(commentWrapper);
   return commentWrapper;

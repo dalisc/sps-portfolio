@@ -251,18 +251,20 @@
 		</section>
 		<hr class="solid" />
 		<section id="comments">
+			<h1><i class="far fa-comment-dots"></i> Comments</h1>
 			<form action="/data" method="POST">
-				<label for="username">Username:</label>
-				<input type="text" name="username" placeholder="Enter an alias!">
-				<br/><br/>
+				<label for="username">Username</label>
+				<input type="text" name="username" placeholder="Enter an alias!" />
+				<br /><br />
 
-				<label for="comments">Comments:</label>
+				<label for="comments">Comments</label>
 				<textarea name="comments" placeholder="Enter your comments!"></textarea>
-				<br/><br/>
+				<br /><br />
 
-				<input type="submit" />
-    </form>
-			<div id="comments-container"></div>
+				<button type="submit">Comment</button>
+			</form>
+			<div id="comments-container">
+			</div>
 		</section>
 	</main>
 
