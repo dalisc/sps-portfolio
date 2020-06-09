@@ -45,7 +45,7 @@ public class DataServlet extends HttpServlet {
     // Get the input from the form.
     String username = getParameter(request, "username", "");
     String comments = getParameter(request, "comments", "");
-    SimpleDateFormat formatter = new SimpleDateFormat("EEE dd/MM/yyyy HH:mm:ss z");  
+    SimpleDateFormat formatter = new SimpleDateFormat("EEE dd/MM/yyyy hh:mm z");  
     Date date = new Date();  
     String timestamp = formatter.format(date).toString();  
 
@@ -56,9 +56,6 @@ public class DataServlet extends HttpServlet {
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(commentEntity);
-
-    // String commentJSON = convertCommentToJson(username, comments);
-    // commentsList.add(commentJSON);
 
     // Redirect back to the HTML page.
     response.sendRedirect("/index.html");
