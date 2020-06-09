@@ -18,6 +18,7 @@
 
 document.addEventListener("DOMContentLoaded", function(){
   addFilmImages();
+  getComments();
 });
 
 function addFilmImages() {
@@ -101,19 +102,32 @@ function toggleImageGallery() {
   }
 }
 
-function getGreetings() {
-    fetch("/data").then(response => response.json()).then((greetings) => {
-        console.log(greetings);
-        console.log(Object.values(greetings));
-        const greetingsContainer = document.getElementById('greetings-container');
-        greetings.map((greeting) => greetingsContainer.appendChild(createListElement(greeting)));
+function getComments() {
+    fetch("/data").then(response => response.json()).then((comments) => {
+        console.log(comments);
+        const commentsContainer = document.getElementById('comments-container');
+        comments.map((comment) => commentsContainer.appendChild(createCommentSection(comment)));
 
   });
 }
 
-/** Creates an <li> element containing text. */
-function createListElement(text) {
-  const liElement = document.createElement('li');
-  liElement.innerText = text;
-  return liElement;
+/** Creates some HTML that displays the comments */
+function createCommentSection(commentObj) {
+  // wrapper div
+  const commentWrapper = document.createElement('div');
+  commentWrapper.className = "comment-wrapper";
+  // comments
+  const comments = document.createElement('p');
+  comments.className = "comment-display";
+  comments.innerHTML = commentObj.comments;
+  // username
+  const username = document.createElement('p');
+  username.className = "username-display";
+  username.innerHTML = commentObj.username;
+  // append the nodes to the wrapper
+  commentWrapper.appendChild(comments)
+  commentWrapper.appendChild(username)
+  // returns the comment wrapper containing comments and username
+  console.log(commentWrapper);
+  return commentWrapper;
 }

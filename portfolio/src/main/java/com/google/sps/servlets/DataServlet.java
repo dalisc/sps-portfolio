@@ -27,21 +27,51 @@ import java.util.List;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
     
-  List<String> greetings = new ArrayList<String>(List.of("Hola!", "Bonjour!", "Hallo!"));
+  List<String> commentsList = new ArrayList<String>();
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // Convert the greetings ArrayList to JSON
-    String json = convertToJsonUsingGson(this.greetings);
-
     // Send the JSON as the response
     response.setContentType("application/json;");
-    response.getWriter().println(json);
+    response.getWriter().println(commentsList);
   }
   
-  private String convertToJsonUsingGson(List<String> greetings) {
-    Gson gson = new Gson();
-    String json = gson.toJson(greetings);
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Get the input from the form.
+    String username = getParameter(request, "username", "");
+    String comments = getParameter(request, "comments", "");
+
+    String commentJSON = convertCommentToJson(username, comments);
+    commentsList.add(commentJSON);
+
+    // Redirect back to the HTML page.
+    response.sendRedirect("/index.html");
+  }
+
+  /**
+   * @return the request parameter, or the default value if the parameter
+   *         was not specified by the client
+   */
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
+  }
+
+  /**
+   * Converts the form input into a JSON string using manual String concatentation.
+   */
+  private String convertCommentToJson(String username, String comments) {
+    String json = "{";
+    json += "\"username\": ";
+    json += "\"" + username + "\"";
+    json += ", ";
+    json += "\"comments\": ";
+    json += "\"" + comments + "\"";
+    json += "}";
     return json;
   }
 }
