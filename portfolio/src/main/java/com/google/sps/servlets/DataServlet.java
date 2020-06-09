@@ -14,14 +14,18 @@
 
 package com.google.sps.servlets;
 
-import com.google.gson.Gson;
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.text.SimpleDateFormat;  
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
@@ -41,9 +45,20 @@ public class DataServlet extends HttpServlet {
     // Get the input from the form.
     String username = getParameter(request, "username", "");
     String comments = getParameter(request, "comments", "");
+    SimpleDateFormat formatter = new SimpleDateFormat("EEE dd/MM/yyyy HH:mm:ss z");  
+    Date date = new Date();  
+    String timestamp = formatter.format(date).toString();  
 
-    String commentJSON = convertCommentToJson(username, comments);
-    commentsList.add(commentJSON);
+    Entity commentEntity = new Entity("Comment");
+    commentEntity.setProperty("username", username);
+    commentEntity.setProperty("comments", comments);
+    commentEntity.setProperty("timestamp", timestamp);
+
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(commentEntity);
+
+    // String commentJSON = convertCommentToJson(username, comments);
+    // commentsList.add(commentJSON);
 
     // Redirect back to the HTML page.
     response.sendRedirect("/index.html");
