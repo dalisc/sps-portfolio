@@ -103,8 +103,7 @@ function toggleImageGallery() {
 }
 
 function getComments() {
-    fetch("/data").then(response => response.json()).then((comments) => {
-        console.log(comments);
+    fetch("/comments").then(response => response.json()).then((comments) => {
         const commentsContainer = document.getElementById('comments-container');
         comments.map((comment) => commentsContainer.appendChild(createCommentSection(comment)));
 
@@ -166,6 +165,5 @@ function createCommentSection(commentObj) {
   commentWrapper.append(divider);
 
   // returns the comment wrapper containing comments and username
-  console.log(commentWrapper);
   return commentWrapper;
 }
