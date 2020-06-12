@@ -104,13 +104,6 @@ public class DataServlet extends HttpServlet {
    * Converts the form input into a JSON string using manual String concatentation.
    */
   private String convertCommentToJson(String username, String comments) {
-    String json = "{";
-    json += "\"username\": ";
-    json += "\"" + username + "\"";
-    json += ", ";
-    json += "\"comments\": ";
-    json += "\"" + comments + "\"";
-    json += "}";
-    return json;
+    return String.format("{ username: %s, comments: %s }", username, comments);
   }
 }
