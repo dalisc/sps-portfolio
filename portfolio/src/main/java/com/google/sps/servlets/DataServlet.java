@@ -76,6 +76,10 @@ public class DataServlet extends HttpServlet {
     Date date = new Date();  
     String timestamp = formatter.format(date).toString();  
 
+    if (username == null || username.isEmpty() || comments == null || comments.isEmpty()) {
+      return;
+    }
+
     Entity commentEntity = new Entity("Comment");
     commentEntity.setProperty("username", username);
     commentEntity.setProperty("comments", comments);
