@@ -16,7 +16,7 @@
  * Creates images for photography gallery
  */
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
   addFilmImages();
   getComments();
 });
@@ -90,24 +90,25 @@ function addFilmImages() {
 
 function toggleImageGallery() {
   var gallery = document.getElementById("image-gallery-wrapper");
-  var toggleButton = document.getElementById("view-gallery-button")
+  var toggleButton = document.getElementById("view-gallery-button");
   if (gallery.style.display === "none") {
     gallery.style.display = "block";
-    toggleButton.innerHTML = "close gallery"
-
+    toggleButton.innerHTML = "close gallery";
   } else {
     gallery.style.display = "none";
-    toggleButton.innerHTML = "view image gallery"
-
+    toggleButton.innerHTML = "view image gallery";
   }
 }
 
 function getComments() {
-    fetch("/comments").then(response => response.json()).then((comments) => {
-        const commentsContainer = document.getElementById('comments-container');
-        comments.map((comment) => commentsContainer.appendChild(createCommentSection(comment)));
-
-  });
+  fetch("/comments")
+    .then((response) => response.json())
+    .then((comments) => {
+      const commentsContainer = document.getElementById("comments-container");
+      comments.map((comment) =>
+        commentsContainer.appendChild(createCommentSection(comment))
+      );
+    });
 }
 
 /** Creates some HTML that displays the comments 
@@ -129,41 +130,14 @@ function getComments() {
     </div>
 */
 function createCommentSection(comment) {
-
-  // comment wrapper div
   const commentWrapper = document.createElement("div");
   commentWrapper.id = "comment-wrapper";
-  // username and timestamp wrapper div
-  const headerWrapper = document.createElement("div");
-  headerWrapper.id = "comment-header";
+  commentWrapper.innerHTML =
+    '<div id="comment-header"> <p id="username-display"></p> <p id="timestamp-display"></p> </div> <p id="comments-display"></p> <hr class="solid" />';
 
-  // p tag elements
-  // comments
-  const comments = document.createElement("p");
-  comments.id = "comment-display";
-  comments.innerHTML = comment.comments;
-  // username
-  const username = document.createElement("p");
-  username.id = "username-display";
-  username.innerHTML = comment.username;
-  // timestamp
-  const timestamp = document.createElement("p");
-  timestamp.id = "timestamp-display";
-  timestamp.innerHTML = comment.timestamp;
+  document.getElementById("username-display").innerHTML = comment.username;
+  document.getElementById("timestamp-display").innerHTML = comment.timestamp;
+  document.getElementById("comments-display").innerHTML = comment.comments;
 
-  // divider between comments
-  const divider = document.createElement("hr");
-  divider.className = "solid";
-
-  // append the username and timestamp to the header wrapper
-  headerWrapper.appendChild(username);
-  headerWrapper.appendChild(timestamp);
-
-  // append the nodes to the wrapper
-  commentWrapper.appendChild(headerWrapper)
-  commentWrapper.appendChild(comments);
-  commentWrapper.append(divider);
-
-  // returns the comment wrapper containing comments and username
   return commentWrapper;
 }
