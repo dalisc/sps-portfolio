@@ -128,7 +128,7 @@ function getComments() {
         <hr class="solid" />
     </div>
 */
-function createCommentSection(commentObj) {
+function createCommentSection(comment) {
 
   // comment wrapper div
   const commentWrapper = document.createElement("div");
@@ -141,15 +141,15 @@ function createCommentSection(commentObj) {
   // comments
   const comments = document.createElement("p");
   comments.id = "comment-display";
-  comments.innerHTML = commentObj.comments;
+  comments.innerHTML = comment.comments;
   // username
   const username = document.createElement("p");
   username.id = "username-display";
-  username.innerHTML = commentObj.username;
+  username.innerHTML = comment.username;
   // timestamp
   const timestamp = document.createElement("p");
   timestamp.id = "timestamp-display";
-  timestamp.innerHTML = commentObj.timestamp;
+  timestamp.innerHTML = comment.timestamp;
 
   // divider between comments
   const divider = document.createElement("hr");
