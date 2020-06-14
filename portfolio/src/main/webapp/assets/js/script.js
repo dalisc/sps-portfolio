@@ -133,11 +133,7 @@ function createCommentSection(comment) {
   const commentWrapper = document.createElement("div");
   commentWrapper.id = "comment-wrapper";
   commentWrapper.innerHTML =
-    '<div id="comment-header"> <p id="username-display"></p> <p id="timestamp-display"></p> </div> <p id="comments-display"></p> <hr class="solid" />';
-
-  document.getElementById("username-display").innerHTML = comment.username;
-  document.getElementById("timestamp-display").innerHTML = comment.timestamp;
-  document.getElementById("comments-display").innerHTML = comment.comments;
-
+    `<div id="comment-header"> <p id="username-display">${comment.username}</p> <p id="timestamp-display">${comment.timestamp}</p> </div> <p id="comments-display">${comment.comments}</p> <hr class="solid" />`;
+    
   return commentWrapper;
 }
