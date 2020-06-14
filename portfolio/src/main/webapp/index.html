@@ -13,17 +13,17 @@
       crossorigin="anonymous"
     ></script>
   </head>
+
   <body>
     <!-- Header -->
     <header>
-        <div class="img-hover-zoom--colorize">
-          <img class="profile-img" src="images/profile-pic.jpg" alt="Avatar" />
-        </div>
-        <h1>Dalis Chan</h1>
-        <p id="content">
-          Personal Portfolio
-        </p>
-
+      <div class="img-hover-zoom--colorize">
+        <img class="profile-img" src="images/profile-pic.jpg" alt="Avatar" />
+      </div>
+      <h1>Dalis Chan</h1>
+      <p id="content">
+        Personal Portfolio
+      </p>
     </header>
     <!-- Navbar -->
     <nav>
@@ -34,6 +34,7 @@
         <li><a href="#interests">Interests</a></li>
       </ul>
     </nav>
+    <!-- Main content -->
     <main>
       <section id="about">
         <h1><i class="fas fa-laugh-beam"></i> About Me</h1>
@@ -47,7 +48,9 @@
           in my spare time!
         </p>
       </section>
+
       <hr class="solid" />
+
       <section id="projects">
         <h1><i class="fas fa-code-branch"></i> My Projects</h1>
         <p>
@@ -57,14 +60,14 @@
         </p>
 
         <h2>Hackathons</h2>
-
         <div id="hackathons-wrapper">
           <div class="justified">
             <a
               href="https://www.agorize.com/en/challenges/hack-asia"
               target="_blank"
-              ><h3>SpotNow (Hack.Asia 2019)</h3></a
             >
+              <h3>SpotNow (Hack.Asia 2019)</h3>
+            </a>
             <div class="img-hover-zoom img-hover-zoom-content">
               <img
                 class="content-img"
@@ -89,9 +92,9 @@
             </p>
           </div>
           <div id="hackathon">
-            <a href="https://github.com/dalisc/O.Life" target="_blank"
-              ><h3>O.Life (Circles.Hack 2019)</h3></a
-            >
+            <a href="https://github.com/dalisc/O.Life" target="_blank">
+              <h3>O.Life (Circles.Hack 2019)</h3>
+            </a>
             <div class="img-hover-zoom img-hover-zoom-content">
               <img
                 class="content-img"
@@ -99,7 +102,6 @@
                 alt="Group photo at Circles.Hack 2019"
               />
             </div>
-
             <p>
               This personalized recommendation engine was developed for a
               virtual hackathon organised by Circles.Life. It uses collaborative
@@ -112,7 +114,9 @@
             </p>
           </div>
           <div id="hackathon">
-            <a href="" target="_blank"><h3>PokkaPet (Hackomania 2019)</h3></a>
+            <a href="" target="_blank">
+              <h3>PokkaPet (Hackomania 2019)</h3>
+            </a>
             <div class="img-hover-zoom img-hover-zoom-content">
               <img
                 class="content-img"
@@ -139,12 +143,16 @@
             </p>
           </div>
         </div>
+
         <h2>Others</h2>
         <div id="other-projects-wrapper">
           <div>
-            <a href="https://github.com/dalisc/emoji-search-web" target="_blank"
-              ><h3>Emoji Search (2020)</h3></a
+            <a
+              href="https://github.com/dalisc/emoji-search-web"
+              target="_blank"
             >
+              <h3>Emoji Search (2020)</h3>
+            </a>
             <p>
               A simple web app that allows you to search for emojis by name.
               This was the first app I developed with React. I created this as
@@ -153,9 +161,9 @@
             </p>
           </div>
           <div>
-            <a href="https://github.com/dalisc/youtube-cat" target="_blank"
-              ><h3>YouTube Cat (Orbital 2019)</h3></a
-            >
+            <a href="https://github.com/dalisc/youtube-cat" target="_blank">
+              <h3>YouTube Cat (Orbital 2019)</h3>
+            </a>
             <p>
               YouTube Cat is a Chrome plugin developed by me and my friend
               Arjavi as a 2019 summer project. It allows you to specify what
@@ -167,12 +175,14 @@
           </div>
         </div>
       </section>
+
       <hr class="solid" />
+
       <section id="work">
         <h1><i class="fas fa-briefcase"></i> My Internship Experiences</h1>
-        <a href="https://pawjourr.com" target="_blank"
-          ><h3>Pawjourr x The Woof Agency (Singapore, Summer 2020)</h3></a
-        >
+        <a href="https://pawjourr.com" target="_blank">
+          <h3>Pawjourr x The Woof Agency (Singapore, Summer 2020)</h3>
+        </a>
         <p>
           I am currently interning at Pawjourr x TWA as a Software Engineer.
           Pawjourr is an up-and-coming pet e-commerce. It is the child startup
@@ -184,9 +194,9 @@
           incorporating is GraphQL and Tailwind CSS, which are AMAZING
           frameworks!
         </p>
-        <a href="https://pawjourr.com" target="_blank"
-          ><h3>9cv9 (Bandung, Indonesia, Summer 2019)</h3></a
-        >
+        <a href="https://pawjourr.com" target="_blank">
+          <h3>9cv9 (Bandung, Indonesia, Summer 2019)</h3>
+        </a>
         <p>
           This was my first developer internship and it was abraod too, so you
           could imagine my excitement! 9cv9 is a career platform startup that
@@ -230,7 +240,9 @@
           </li>
         </ul>
       </section>
+
       <hr class="solid" />
+
       <section id="interests">
         <h1><i class="fas fa-camera-retro"></i> My Interests & Hobbies</h1>
         <p>
@@ -255,17 +267,42 @@
           There was one roll where I accidentally used the same roll twice and
           had some accidental double exposures.
         </p>
-        <div id="wrapper-center">
-          <button id="view-gallery-button" onclick="toggleImageGallery()">
-            View Image Gallery
-          </button>
-        </div>
+        <button id="view-gallery-button" onclick="toggleImageGallery()">
+          View Image Gallery
+        </button>
         <div id="image-gallery-wrapper" style="display: none;">
           <div id="image-gallery-container"></div>
         </div>
       </section>
+
+      <hr class="solid" />
+
+      <!-- Comments section -->
+      <section id="comments">
+        <h1><i class="far fa-comment-dots"></i> Comments</h1>
+        <form action="/comments" method="POST">
+          <label for="username">Username</label>
+          <input
+            required
+            type="text"
+            name="username"
+            placeholder="Enter an alias!"
+          />
+          <br /><br />
+          <label for="comments">Comments</label>
+          <textarea
+            required
+            name="comments"
+            placeholder="Enter your comments!"
+          ></textarea>
+          <br /><br />
+          <button type="submit">Comment</button>
+        </form>
+        <div id="comments-container"></div>
+      </section>
     </main>
 
+    <!-- Footer section -->
     <footer>
       <div class="social">
         <div class="tooltip">
