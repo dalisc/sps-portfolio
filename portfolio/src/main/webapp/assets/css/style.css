@@ -71,6 +71,7 @@ nav ul li a.current {
 /* Main content */
 body {
   margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: min-content 1fr;
   font-family: system-ui, sans-serif;
@@ -239,7 +240,14 @@ button {
   justify-content: center;
 }
 
-/* comments section */
+/* Maps section */
+#map 
+{  
+    height: 25rem;
+    width: 100%;
+}
+
+/* Comments section */
 
 #comments-container {
   margin-top: 50px;
