@@ -1,358 +1,407 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dalis Chan</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script type="text/javascript" src="assets/js/script.js"></script>
+    <script type="text/javascript" src="assets/js/nav.js"></script>
+    <script type="text/javascript" src="assets/js/map.js"></script>
+    <!-- Google Maps API -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwdutOuo0MJNm2ENN-qmdWAvWO7QY_Z7U&callback=initMap"
+      async
+      defer
+    ></script>
+    <!-- FontAwesome icons -->
+    <script
+      src="https://kit.fontawesome.com/bf05d78857.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<title>Dalis Chan</title>
-	<link rel="stylesheet" href="assets/css/style.css" />
-	<script type="text/javascript" src="assets/js/script.js"></script>
-	<script type="text/javascript" src="assets/js/nav.js"></script>
-	<script type="text/javascript" src="assets/js/map.js"></script>
-	<!-- Google Maps API -->
-	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwdutOuo0MJNm2ENN-qmdWAvWO7QY_Z7U&callback=initMap"
-		async defer></script>
-	<!-- FontAwesome icons -->
-	<script src="https://kit.fontawesome.com/bf05d78857.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-	<!-- Header -->
-	<header>
-		<div class="img-hover-zoom--colorize">
-			<img class="profile-img" src="images/profile-pic.jpg" alt="Avatar" />
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="img-hover-zoom--colorize">
+        <img class="profile-img" src="images/profile-pic.jpg" alt="Avatar" />
       </div>
-			<h1>Dalis Chan</h1>
-			<p id="content">
-				Personal Portfolio
-			</p>
-	</header>
-	<!-- Navbar -->
-	<nav>
-		<ul>
-			<li><a href="#about">About Me</a></li>
-			<li><a href="#projects">Projects</a></li>
-			<li><a href="#work">Work Experiences</a></li>
-			<li><a href="#interests">Interests</a></li>
-		</ul>
-	</nav>
-	<!-- Main content -->
-	<main>
-		<section id="about">
-			<h1><i class="fas fa-laugh-beam"></i> About Me</h1>
-			<p id="content">
-				Hey there! I'm Dalis. I'm a Year 3 computer science undergrad at the
-				National University of Singapore. I love programming, especially web
-				development. I am currently interning as a Software Engineer at
-				Pawjourr x TWA for the 2020 summer. I love picking up new programming
-				skills and through this internship, two new things I am learning are
-				ReactJS and GraphQL. Read on more to find out what I do at school and
-				in my spare time!
-			</p>
-		</section>
+      <h1>Dalis Chan</h1>
+      <p id="content">
+        Personal Portfolio
+      </p>
+    </header>
+    <!-- Navbar -->
+    <nav>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#work">Work Experiences</a></li>
+        <li><a href="#interests">Interests</a></li>
+      </ul>
+    </nav>
+    <!-- Main content -->
+    <main>
+      <section id="about">
+        <h1><i class="fas fa-laugh-beam"></i> About Me</h1>
+        <p id="content">
+          Hey there! I'm Dalis. I'm a Year 3 computer science undergrad at the
+          National University of Singapore. I love programming, especially web
+          development. I am currently interning as a Software Engineer at
+          Pawjourr x TWA for the 2020 summer. I love picking up new programming
+          skills and through this internship, two new things I am learning are
+          ReactJS and GraphQL. Read on more to find out what I do at school and
+          in my spare time!
+        </p>
+      </section>
 
-		<hr class="solid" />
+      <hr class="solid" />
 
-		<section id="projects">
-			<h1><i class="fas fa-code-branch"></i> My Projects</h1>
-			<p>
-				<span class="">I</span> love getting my hands dirty and making
-				software. I'm always excited to join hackathons or do interesting
-				projects!
-			</p>
+      <section id="projects">
+        <h1><i class="fas fa-code-branch"></i> My Projects</h1>
+        <p>
+          <span class="">I</span> love getting my hands dirty and making
+          software. I'm always excited to join hackathons or do interesting
+          projects!
+        </p>
 
-			<h2>Hackathons</h2>
-			<div id="hackathons-wrapper">
-				<div class="justified">
-					<a href="https://www.agorize.com/en/challenges/hack-asia" target="_blank">
-						<h3>SpotNow (Hack.Asia 2019)</h3>
-					</a>
-					<div class="img-hover-zoom img-hover-zoom-content">
-						<img
+        <h2>Hackathons</h2>
+        <div id="hackathons-wrapper">
+          <div class="justified">
+            <a
+              href="https://www.agorize.com/en/challenges/hack-asia"
+              target="_blank"
+            >
+              <h3>SpotNow (Hack.Asia 2019)</h3>
+            </a>
+            <div class="img-hover-zoom img-hover-zoom-content">
+              <img
                 class="content-img"
                 src="images/hackasia-1.jpg"
                 alt="Group photo at Hack.Asia 2019"
               />
             </div>
-						<p>
-							For the Daimler Empowering Mobility Challenge, my team and I
-							pitched an idea for smartcars to help detect unreported road
-							accidents. Our idea made it to the finals for which I prototyped a
-							video analytics engine to detect vehicle accidents and plot
-							accident hotspots on the map, using Django, Google Video
-							Intelligence API, OpenWeatherMap API, and Mapbox. (Unfortunately,
-							this repository was required to be private, but you can view our
-							slide deck
-							<a href="https://docs.google.com/presentation/d/17gKR9tHiwbWK_A2qxeM65O9aadPURgUebY0kaDCBT1E/edit?usp=sharing"
-								target="_blank">here</a>!)
-						</p>
-					</div>
-					<div id="hackathon">
-						<a href="https://github.com/dalisc/O.Life" target="_blank">
-							<h3>O.Life (Circles.Hack 2019)</h3>
-						</a>
-						<div class="img-hover-zoom img-hover-zoom-content">
-							<img
+            <p>
+              For the Daimler Empowering Mobility Challenge, my team and I
+              pitched an idea for smartcars to help detect unreported road
+              accidents. Our idea made it to the finals for which I prototyped a
+              video analytics engine to detect vehicle accidents and plot
+              accident hotspots on the map, using Django, Google Video
+              Intelligence API, OpenWeatherMap API, and Mapbox. (Unfortunately,
+              this repository was required to be private, but you can view our
+              slide deck
+              <a
+                href="https://docs.google.com/presentation/d/17gKR9tHiwbWK_A2qxeM65O9aadPURgUebY0kaDCBT1E/edit?usp=sharing"
+                target="_blank"
+                >here</a
+              >!)
+            </p>
+          </div>
+          <div id="hackathon">
+            <a href="https://github.com/dalisc/O.Life" target="_blank">
+              <h3>O.Life (Circles.Hack 2019)</h3>
+            </a>
+            <div class="img-hover-zoom img-hover-zoom-content">
+              <img
                 class="content-img"
                 src="images/circles-life-2.jpg"
                 alt="Group photo at Circles.Hack 2019"
               />
             </div>
-							<p>
-								This personalized recommendation engine was developed for a
-								virtual hackathon organised by Circles.Life. It uses collaborative
-								filtering to cluster similar users together and content-based
-								filtering to recommend specific items to users in a cluster. We
-								used various APIs to do semantic analysis on event and movie
-								descriptions to see how closely they match users' existing tastes
-								and preferences. We were very proud to win the Most Innovative
-								Award and the Diversity & Inclusion Award.
-							</p>
-						</div>
-						<div id="hackathon">
-							<a href="" target="_blank">
-								<h3>PokkaPet (Hackomania 2019)</h3>
-							</a>
-							<div class="img-hover-zoom img-hover-zoom-content">
-								<img
+            <p>
+              This personalized recommendation engine was developed for a
+              virtual hackathon organised by Circles.Life. It uses collaborative
+              filtering to cluster similar users together and content-based
+              filtering to recommend specific items to users in a cluster. We
+              used various APIs to do semantic analysis on event and movie
+              descriptions to see how closely they match users' existing tastes
+              and preferences. We were very proud to win the Most Innovative
+              Award and the Diversity & Inclusion Award.
+            </p>
+          </div>
+          <div id="hackathon">
+            <a href="" target="_blank">
+              <h3>PokkaPet (Hackomania 2019)</h3>
+            </a>
+            <div class="img-hover-zoom img-hover-zoom-content">
+              <img
                 class="content-img"
                 src="images/hackomania-3.jpg"
                 alt="Group photo at HackOMania 2019"
               />
             </div>
-								<p>
-									I will always remember this as the hackathon where I won a Google
-									Home Mini! My team and I developed a digital pet-themed diet
-									tracker app using Unity and various Rapid Rapid APIs. We couldn't
-									believe it when we became the Rakuten Rapid API Challenge Winner!
-									Click
-									<a
-										href="https://docs.google.com/presentation/d/1bBTBBZD5gw-24x4vRKQuIEZfDztGfyrxwCnlKLFgyhc/edit#slide=id.p">here</a>
-									to view our presentation slides and
-									<a href="https://blog.api.rakuten.net/developer-showcase-pokkapet/">here</a>
-									to view our developer showcase on the Rakuten blog.
-								</p>
-							</div>
-						</div>
+            <p>
+              I will always remember this as the hackathon where I won a Google
+              Home Mini! My team and I developed a digital pet-themed diet
+              tracker app using Unity and various Rapid Rapid APIs. We couldn't
+              believe it when we became the Rakuten Rapid API Challenge Winner!
+              Click
+              <a
+                href="https://docs.google.com/presentation/d/1bBTBBZD5gw-24x4vRKQuIEZfDztGfyrxwCnlKLFgyhc/edit#slide=id.p"
+                >here</a
+              >
+              to view our presentation slides and
+              <a
+                href="https://blog.api.rakuten.net/developer-showcase-pokkapet/"
+                >here</a
+              >
+              to view our developer showcase on the Rakuten blog.
+            </p>
+          </div>
+        </div>
 
-						<h2>Others</h2>
-						<div id="other-projects-wrapper">
-							<div>
-								<a href="https://github.com/dalisc/emoji-search-web" target="_blank">
-									<h3>Emoji Search (2020)</h3>
-								</a>
-								<p>
-									A simple web app that allows you to search for emojis by name.
-									This was the first app I developed with React. I created this as
-									part of an internship interview assignment (and I'm currently
-									interning at the company!).
-								</p>
-							</div>
-							<div>
-								<a href="https://github.com/dalisc/youtube-cat" target="_blank">
-									<h3>YouTube Cat (Orbital 2019)</h3>
-								</a>
-								<p>
-									YouTube Cat is a Chrome plugin developed by me and my friend
-									Arjavi as a 2019 summer project. It allows you to specify what
-									categories of videos you want to block on YouTube, so that you can
-									fine tune your desired level of productivity! We used React for
-									the front-end and Firestore for the backend. Arjavi took care of
-									that. I mainly wrote the javascript logic behind the app!
-								</p>
-							</div>
-						</div>
-		</section>
+        <h2>Others</h2>
+        <div id="other-projects-wrapper">
+          <div>
+            <a
+              href="https://github.com/dalisc/emoji-search-web"
+              target="_blank"
+            >
+              <h3>Emoji Search (2020)</h3>
+            </a>
+            <p>
+              A simple web app that allows you to search for emojis by name.
+              This was the first app I developed with React. I created this as
+              part of an internship interview assignment (and I'm currently
+              interning at the company!).
+            </p>
+          </div>
+          <div>
+            <a href="https://github.com/dalisc/youtube-cat" target="_blank">
+              <h3>YouTube Cat (Orbital 2019)</h3>
+            </a>
+            <p>
+              YouTube Cat is a Chrome plugin developed by me and my friend
+              Arjavi as a 2019 summer project. It allows you to specify what
+              categories of videos you want to block on YouTube, so that you can
+              fine tune your desired level of productivity! We used React for
+              the front-end and Firestore for the backend. Arjavi took care of
+              that. I mainly wrote the javascript logic behind the app!
+            </p>
+          </div>
+        </div>
+      </section>
 
-		<hr class="solid" />
+      <hr class="solid" />
 
-		<section id="work">
-			<h1><i class="fas fa-briefcase"></i> My Internship Experiences</h1>
-			<a href="https://pawjourr.com" target="_blank">
-				<h3>Pawjourr x The Woof Agency (Singapore, Summer 2020)</h3>
-			</a>
-			<p>
-				I am currently interning at Pawjourr x TWA as a Software Engineer.
-				Pawjourr is an up-and-coming pet e-commerce. It is the child startup
-				of the successful pet-influencer marketing startup The Woof Agency.
-				Currently we are moving the Pawjourr e-commerce platform from Shopify
-				to our own tech stack. While my internship supervisor is building the
-				new Pawjourr client web app, I am building the internal content
-				management system. We are using the MERN stack but something new we're
-				incorporating is GraphQL and Tailwind CSS, which are AMAZING
-				frameworks!
-			</p>
-			<a href="https://pawjourr.com" target="_blank">
-				<h3>9cv9 (Bandung, Indonesia, Summer 2019)</h3>
-			</a>
-			<p>
-				This was my first developer internship and it was abraod too, so you
-				could imagine my excitement! 9cv9 is a career platform startup that
-				aims to connect students, fresh grads, and junior job-seekers to tech
-				jobs and internships. At the startup, I worked on creating components
-				for their new job referral system Jobsrefer using Vue.js. I also
-				helped the backend team to create REST API services using Django. In
-				addition, I used Django to create a fullstack payroll management
-				system web application as part of the intra-company hackathon among
-				the interns. Moreover, I was tasked with writing weekly tech articles
-				on Medium. Writing these articles increased my understanding of the
-				tech stack that we were using in the internship too. Here are some
-				articles that I'm proud of:
-			</p>
-			<ul>
-				<li>
-					<a
-						href="https://medium.com/better-marketing/5-little-css-tricks-to-make-your-website-go-a-long-way-7cda61fcd7d0">5
-						Little CSS Tricks to Make Plain Pages Look Awesome</a>
-				</li>
-				<li>
-					<a
-						href="https://medium.com/@9cv9official/create-a-beautiful-hover-triggered-expandable-sidebar-with-simple-html-css-and-javascript-9f5f80a908d1">Create
-						a beautiful hover-triggered expandable sidebar with simple
-						HTML, CSS, and Javascript</a>
-				</li>
-				<li>
-					<a
-						href="https://medium.com/@9cv9official/what-are-get-post-put-patch-delete-a-walkthrough-with-javascripts-fetch-api-17be31755d28">What
-						are GET, POST, PUT, PATCH, DELETE? A walkthrough with
-						JavaScript’s Fetch API.</a>
-				</li>
-				<li>
-					<a
-						href="https://medium.com/@9cv9official/building-a-rest-api-with-django-rest-framework-fabb83ef35e3">Building
-						a REST API with Django Rest Framework</a>
-				</li>
-			</ul>
-		</section>
+      <section id="work">
+        <h1><i class="fas fa-briefcase"></i> My Internship Experiences</h1>
+        <a href="https://pawjourr.com" target="_blank">
+          <h3>Pawjourr x The Woof Agency (Singapore, Summer 2020)</h3>
+        </a>
+        <p>
+          I am currently interning at Pawjourr x TWA as a Software Engineer.
+          Pawjourr is an up-and-coming pet e-commerce. It is the child startup
+          of the successful pet-influencer marketing startup The Woof Agency.
+          Currently we are moving the Pawjourr e-commerce platform from Shopify
+          to our own tech stack. While my internship supervisor is building the
+          new Pawjourr client web app, I am building the internal content
+          management system. We are using the MERN stack but something new we're
+          incorporating is GraphQL and Tailwind CSS, which are AMAZING
+          frameworks!
+        </p>
+        <a href="https://pawjourr.com" target="_blank">
+          <h3>9cv9 (Bandung, Indonesia, Summer 2019)</h3>
+        </a>
+        <p>
+          This was my first developer internship and it was abraod too, so you
+          could imagine my excitement! 9cv9 is a career platform startup that
+          aims to connect students, fresh grads, and junior job-seekers to tech
+          jobs and internships. At the startup, I worked on creating components
+          for their new job referral system Jobsrefer using Vue.js. I also
+          helped the backend team to create REST API services using Django. In
+          addition, I used Django to create a fullstack payroll management
+          system web application as part of the intra-company hackathon among
+          the interns. Moreover, I was tasked with writing weekly tech articles
+          on Medium. Writing these articles increased my understanding of the
+          tech stack that we were using in the internship too. Here are some
+          articles that I'm proud of:
+        </p>
+        <ul>
+          <li>
+            <a
+              href="https://medium.com/better-marketing/5-little-css-tricks-to-make-your-website-go-a-long-way-7cda61fcd7d0"
+              >5 Little CSS Tricks to Make Plain Pages Look Awesome</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://medium.com/@9cv9official/create-a-beautiful-hover-triggered-expandable-sidebar-with-simple-html-css-and-javascript-9f5f80a908d1"
+              >Create a beautiful hover-triggered expandable sidebar with simple
+              HTML, CSS, and Javascript</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://medium.com/@9cv9official/what-are-get-post-put-patch-delete-a-walkthrough-with-javascripts-fetch-api-17be31755d28"
+              >What are GET, POST, PUT, PATCH, DELETE? A walkthrough with
+              JavaScript’s Fetch API.</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://medium.com/@9cv9official/building-a-rest-api-with-django-rest-framework-fabb83ef35e3"
+              >Building a REST API with Django Rest Framework</a
+            >
+          </li>
+        </ul>
+      </section>
 
-		<hr class="solid" />
+      <hr class="solid" />
 
-		<section id="interests">
-			<h1><i class="fas fa-camera-retro"></i> My Interests & Hobbies</h1>
-			<p>
-				In my spare time I love playing tennis! I started learning when I was
-				about 12 back in my home country Cambodia. After coming to Singapore,
-				I played in my high school team and while I was at Tembusu College I
-				played with the college team too! Another thing I love is Netflix.
-				When I want to relax, Netflix and my bed are my go-to place.
-				Otherwise, I'd take out my guitar and start strumming!
-			</p>
-			<p>
-				One hobby I really wish to pick up is SCUBA diving! In the summer of
-				2019 when I was living in Indonesia, I did a fun dive in the Gili
-				islands and instantly fell in love with the underwater world. You're
-				weightless, probably much like floating in space... When travel
-				becomes somewhat normal again I plan to get my SCUBA licenses and go
-				diving anywhere I can afford.
-			</p>
-			<p>
-				Also, last summer, I also bought an old film camera and just pointed
-				and shoot stuff. Here are some pictures that developed quite nicely!
-				There was one roll where I accidentally used the same roll twice and
-				had some accidental double exposures.
-			</p>
-			<button id="view-gallery-button" onclick="toggleImageGallery()">
+      <section id="interests">
+        <h1><i class="fas fa-camera-retro"></i> My Interests & Hobbies</h1>
+        <p>
+          In my spare time I love playing tennis! I started learning when I was
+          about 12 back in my home country Cambodia. After coming to Singapore,
+          I played in my high school team and while I was at Tembusu College I
+          played with the college team too! Another thing I love is Netflix.
+          When I want to relax, Netflix and my bed are my go-to place.
+          Otherwise, I'd take out my guitar and start strumming!
+        </p>
+        <p>
+          One hobby I really wish to pick up is SCUBA diving! In the summer of
+          2019 when I was living in Indonesia, I did a fun dive in the Gili
+          islands and instantly fell in love with the underwater world. You're
+          weightless, probably much like floating in space... When travel
+          becomes somewhat normal again I plan to get my SCUBA licenses and go
+          diving anywhere I can afford.
+        </p>
+        <p>
+          Also, last summer, I also bought an old film camera and just pointed
+          and shoot stuff. Here are some pictures that developed quite nicely!
+          There was one roll where I accidentally used the same roll twice and
+          had some accidental double exposures.
+        </p>
+        <button id="view-gallery-button" onclick="toggleImageGallery()">
           View Image Gallery
         </button>
-			<div id="image-gallery-wrapper" style="display: none;">
-				<div id="image-gallery-container"></div>
-			</div>
-		</section>
+        <div id="image-gallery-wrapper" style="display: none;">
+          <div id="image-gallery-container"></div>
+        </div>
+      </section>
 
-		<hr class="solid" />
+      <hr class="solid" />
 
-		<!-- Maps section -->
-		<section id="maps">
-			<h1><i class="fas fa-globe-asia"></i> Help Me Discover the World!</h1>
-			<p>I say that I love to travel but I don't think I do it enough! Help me discover the world by adding a fun
-				fact about a place or sharing a unique experience that you had there. It could be any place - a city,
-				school restaurant, or park!</p>
-			<div id="map"></div>
-			<h3>Share a place with me!</h3>
-			<form action="/markers" method="POST">
-				<label for="lat">Latitude</label>
-				<input
-                    required
-                    type="number"
-                    name="lat"
-                    placeholder="Latitude coordinate (with respect to the North)"
-                />
-				<label for="lng">Longitude</label>
-				<input
-                    required
-                    type="number"
-                    name="lng"
-                    placeholder="Longitude coordinate (with respect to the East)"
-                />
-				<label for="title">Title</label>
-				<input
-            required
-            type="text"
-            name="title"
-            placeholder="Name of city, attraction, restaurant, etc"
-          />
-				<label for="desc">Description</label>
-				<textarea
-            required
-            name="desc"
-            placeholder="What's a fun fact about this place or a unique experience you had!?"
-          ></textarea>
-				<label for="link">Link</label>
-				<input
-            type="text"
-            name="link"
-            placeholder="(Optional) Place a link here to any website."
-          />
-				<button type="submit">Submit</button>
-			</form>
-		</section>
+      <!-- Maps section -->
+      <section id="maps">
+        <h1><i class="fas fa-globe-asia"></i> Let's Discover the World</h1>
 
-		<hr class="solid" />
+        <p>I say that I love to travel but I don't think I do it enough!</p>
 
-		<!-- Comments section -->
-		<section id="comments">
-			<h1><i class="far fa-comment-dots"></i> Comments</h1>
-			<form action="/comments" method="POST">
-				<label for="username">Username</label>
-				<input
+        <p>
+          Click a marker to discover something interesting about a place. Help
+          me discover the world by adding a fun fact about a place or sharing a
+          unique experience that you had. It could be at anywhere - a city,
+          school restaurant, or park!
+        </p>
+        <div class="map-container">
+          <div>
+            <h3>Share a place with me!</h3>
+            <a
+              href="https://www.clubrunnersupport.com/article/1416-how-to-find-a-location-s-latitude-longitude-in-google-maps"
+              target="_blank"
+              >Follow these instructions to enter the coordinated correctly.</a
+            >
+            <br></br>
+            <form action="/markers" method="POST">
+              <label for="lat">Latitude</label>
+              <input
+                required
+                type="number"
+                name="lat"
+                placeholder="Latitude coordinate (with respect to the North)"
+              />
+              <label for="lng">Longitude</label>
+              <input
+                required
+                type="number"
+                name="lng"
+                placeholder="Longitude coordinate (with respect to the East)"
+              />
+              <label for="title">Title</label>
+              <input
+                required
+                type="text"
+                name="title"
+                placeholder="Name of city, attraction, restaurant, etc"
+              />
+              <label for="desc">Description</label>
+              <textarea
+                required
+                name="desc"
+                placeholder="A fun fact about this place or a unique experience you had"
+              ></textarea>
+              <label for="link">Link</label>
+              <input
+                type="text"
+                name="link"
+                placeholder="(Optional) Link for more information"
+              />
+              <br></br>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+          <div id="map" class="map"></div>
+        </div>
+      </section>
+
+      <hr class="solid" />
+
+      <!-- Comments section -->
+      <section id="comments">
+        <h1><i class="far fa-comment-dots"></i> Comments</h1>
+        <form action="/comments" method="POST">
+          <label for="username">Username</label>
+          <input
             required
             type="text"
             name="username"
             placeholder="Enter an alias!"
           />
-				<label for="comments">Comments</label>
-				<textarea
+          <label for="comments">Comments</label>
+          <textarea
             required
             name="comments"
             placeholder="Enter your comments!"
           ></textarea>
-				<button type="submit">Comment</button>
-			</form>
-			<div id="comments-container"></div>
-		</section>
-	</main>
+          <br></br>
+          <button type="submit">Comment</button>
+        </form>
+        <div id="comments-container"></div>
+      </section>
+    </main>
 
-	<!-- Footer section -->
-	<footer>
-		<div class="social">
-			<div class="tooltip">
-				<a id="social-icon" href="https://github.com/dalisc/"
-					target="_blank"><i class="fab fa-github icon-3x"></i></a>
-				<span class="tooltiptext">GitHub profile</span>
-			</div>
+    <!-- Footer section -->
+    <footer>
+      <div class="social">
+        <div class="tooltip">
+          <a id="social-icon" href="https://github.com/dalisc/" target="_blank"
+            ><i class="fab fa-github icon-3x"></i
+          ></a>
+          <span class="tooltiptext">GitHub profile</span>
+        </div>
 
-			<div class="tooltip">
-				<a id="social-icon" href="https://www.linkedin.com/in/dalisc/"
-					target="_blank"><i class="fab fa-linkedin"></i></a>
-				<span class="tooltiptext">LinkedIn profile</span>
-			</div>
-			<div class="tooltip">
-				<a id="social-icon" href="mailto:dalischan97@gmail.com"
-					target="_blank"><i class="fas fa-envelope-open-text"></i></a>
-				<span class="tooltiptext">Email me</span>
-			</div>
-		</div>
-	</footer>
-</body>
-
+        <div class="tooltip">
+          <a
+            id="social-icon"
+            href="https://www.linkedin.com/in/dalisc/"
+            target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <span class="tooltiptext">LinkedIn profile</span>
+        </div>
+        <div class="tooltip">
+          <a
+            id="social-icon"
+            href="mailto:dalischan97@gmail.com"
+            target="_blank"
+            ><i class="fas fa-envelope-open-text"></i
+          ></a>
+          <span class="tooltiptext">Email me</span>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

@@ -136,7 +136,7 @@ button {
   font-size: 12px;
   text-transform: uppercase;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 #wrapper-center {
@@ -240,13 +240,6 @@ button {
   justify-content: center;
 }
 
-/* Maps section */
-#map 
-{  
-    height: 25rem;
-    width: 100%;
-}
-
 /* Comments section */
 
 #comments-container {
@@ -289,4 +282,17 @@ textarea {
   border-radius: 4px;
   box-sizing: border-box;
   font-family: inherit;
+}
+
+/* map section */
+#map {  
+    height: 45rem;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.map-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-gap: 1.5rem;
 }
