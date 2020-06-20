@@ -7,10 +7,6 @@ html {
   scroll-behavior: smooth;
 }
 
-p {
-  text-align: justi
-}
-
 /* header */
 
 header {
@@ -297,7 +293,7 @@ textarea {
 
 .error-message {
     font-size: 10px;
-    color: red;
+    color: #ea4335;
     margin-top: -0.3rem;
 }
 
