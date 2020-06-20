@@ -1,5 +1,6 @@
 (function (exports) {
   "use strict";
+  
   var mapCustomStyles = [
     {
       elementType: "geometry",
@@ -314,13 +315,17 @@
     var infowindow = new google.maps.InfoWindow();
 
     for (var i = 0; i < places.length; i++) {
-      var content = parseInfoWindowContent(places[i]);
+        createMarkerWithInfoWindow(places[i]);
+  }
+
+  function createMarkerWithInfoWindow(place) {
+      var content = parseInfowindowContent(place);
 
       var marker = new google.maps.Marker({
         map: map,
         animation: google.maps.Animation.DROP,
-        position: places[i].coordinates,
-        title: places[i].title,
+        position: place.coordinates,
+        title: place.title,
       });
 
       google.maps.event.addListener(
@@ -338,7 +343,7 @@
     }
   }
 
-  function parseInfoWindowContent(place) {
+  function parseInfowindowContent(place) {
     var contentString =
       '<div id="content">' +
       '<div id="siteNotice">' +
@@ -346,7 +351,7 @@
       `<h1 id="firstHeading" class="firstHeading">${place.title}</h1>` +
       '<div id="bodyContent">' +
       `<p>${place.desc}</p>` +
-      `<a style="display: ${place.link ? "block" : "none"};" href="${
+      `<a style="display: ${place.link ? "inline-block" : "none"};" href="${
         place.link
       }" target="_blank">Discover more!</a>` +
       "</div>" +
@@ -356,4 +361,5 @@
   }
 
   exports.initMap = initMap;
+  
 })((this.window = this.window || {}));
