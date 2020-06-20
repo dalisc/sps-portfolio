@@ -19,15 +19,15 @@ function validateMarkerForm() {
     latError = false;
   }
 
-  if (lng < -180 || lng > 80) {
-    document.getElementById("lng-error").innerHTML = "Latitude must be between -180 and 80.";
+  if (lng < -180 || lng > 180) {
+    document.getElementById("lng-error").innerHTML = "Longitude must be between -180 and 180.";
     lngError = true;
   } else {
     document.getElementById("lng-error").innerHTML = "";
     lngError = false;
   }
 
-  if (!urlRegex.test(link)) {
+  if (link !== "" && !urlRegex.test(link)) {
     document.getElementById("link-error").innerHTML = "Not a valid URL. Did you specify the protocol (HTTP or HTTPS)?";
     linkError = true;
   } else {
