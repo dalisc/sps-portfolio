@@ -327,7 +327,7 @@
       "</div>" +
       `<h1 id="infoWindowHeading">${place.title}</h1>` +
       '<div id="infowindowContent">' +
-      `<p>${place.desc}</p>` +
+      `<p style="white-space: pre">${place.desc}</p>` +
       `<a style="display: ${place.link ? "inline-block" : "none"};" href="${
         place.link
       }" target="_blank">Discover more!</a>` +

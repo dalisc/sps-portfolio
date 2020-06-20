@@ -300,7 +300,3 @@ textarea {
     grid-template-columns: 30% 70%;
     grid-gap: 1.5rem;
 }
-
-#infoWindowContent p {
-    white-space: pre;
-}
