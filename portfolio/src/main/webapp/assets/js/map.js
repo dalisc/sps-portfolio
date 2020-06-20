@@ -1,6 +1,15 @@
 (function(exports) {
     "use strict";
 
+    var markers = [];
+
+    var cities = [
+        { title: "Singapore", coordinates: { lat: 1.3521, lng: 103.8198 } },
+        { title: "Sydney", coordinates: { lat: 33.8688, lng: 151.2093 } },
+        { title: "Shanghai", coordinates: { lat: 31.2304, lng: 121.4737 } },
+        { title: "Phnom Penh", coordinates: { lat: 11.5564, lng: 104.9282 } },
+    ];
+
     function initMap() {
         exports.map = new google.maps.Map(document.getElementById("map"), {
             center: {
@@ -274,7 +283,20 @@
                 }
             ]
         });
+
+        var map = exports.map;
+        for (var i = 0; i < cities.length; i++) {
+            console.log(cities[i]);
+            var marker = new google.maps.Marker({
+                map: exports.map,
+                animation: google.maps.Animation.DROP,
+                position: cities[i].coordinates,
+                title: cities[i].title,
+            });
+            markers.push(marker);
+        }
     }
 
     exports.initMap = initMap;
+
 })((this.window = this.window || {}));
