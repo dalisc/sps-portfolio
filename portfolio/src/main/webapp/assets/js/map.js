@@ -327,10 +327,10 @@
       "</div>" +
       `<h1 id="infoWindowHeading">${place.title}</h1>` +
       '<div id="infowindowContent">' +
-      `<p style="white-space: pre">${place.desc}</p>` +
-      `<a style="display: ${place.link ? "inline-block" : "none"};" href="${
+      `<p style="white-space: pre-line">${place.desc}</p>` +
+      `<p><a style="display: ${place.link ? "inline-block" : "none"};" href="${
         place.link
-      }" target="_blank">Discover more!</a>` +
+      }" target="_blank">Discover more!</a></p>` +
       `<p style="display: ${
         place.submitter ? "inline-block" : "none"
       }; font-style: italic;">Submitted by: ${place.submitter}</p>` +
