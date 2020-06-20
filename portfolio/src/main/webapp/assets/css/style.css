@@ -267,7 +267,7 @@ button {
 }
 
 /* Input styles for forms*/
-input[type=text] {
+input[type=text], input[type=number] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;

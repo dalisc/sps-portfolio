@@ -14,8 +14,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.jsoup.Jsoup;
-import org.jsoup.safety.Whitelist;
 
 /** Handles fetching and saving markers data. */
 @WebServlet("/markers")
@@ -24,26 +22,38 @@ public class MarkerServlet extends HttpServlet {
   /** Responds with a JSON array containing marker data. */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("application/json");
+    try {
+        response.setContentType("application/json");
 
-    Collection<Marker> markers = getMarkers();
-    Gson gson = new Gson();
-    String json = gson.toJson(markers);
+        Collection<Marker> markers = getMarkers();
+        Gson gson = new Gson();
+        String json = gson.toJson(markers);
 
-    response.getWriter().println(json);
+        response.getWriter().println(json);
+    } catch (IOException error) {
+        System.out.println(error);
+    }
+    
   }
 
   /** Accepts a POST request containing a new marker. */
   @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response) {
-    double lat = Double.parseDouble(getParameter(request, "lat", 0));
-    double lng = Double.parseDouble(getParameter(request, "lng", 0));
-    String content = Jsoup.clean(getParameter(request, "title", ""), Whitelist.none());
-    String content = Jsoup.clean(getParameter(request, "desc", ""), Whitelist.none());
-    String content = Jsoup.clean(getParameter(request, "link", ""), Whitelist.none());
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    try {
+        double lat = Double.parseDouble(request.getParameter("lat"));
+        double lng = Double.parseDouble(request.getParameter("lng"));
+        String title = getParameter(request, "title", "");
+        String desc = getParameter(request, "desc", "");
+        String link = getParameter(request, "link", "");
 
-    Marker marker = new Marker(lat, lng, title, desc, link);
-    storeMarker(marker);
+        Marker marker = new Marker(lat, lng, title, desc, link);
+        storeMarker(marker);
+
+        // Redirect back to the HTML page.    
+        response.sendRedirect("/index.html");
+    } catch (IOException error) {
+        System.out.println(error);
+    }
   }
 
    /** Fetches markers from Datastore. */
@@ -57,9 +67,9 @@ public class MarkerServlet extends HttpServlet {
     for (Entity entity : results.asIterable()) {
       double lat = (double) entity.getProperty("lat");
       double lng = (double) entity.getProperty("lng");
-      String content = (String) entity.getProperty("title");
-      String content = (String) entity.getProperty("desc");
-      String content = (String) entity.getProperty("link");
+      String title = (String) entity.getProperty("title");
+      String desc = (String) entity.getProperty("desc");
+      String link = (String) entity.getProperty("link");
 
       Marker marker = new Marker(lat, lng, title, desc, link);
       markers.add(marker);

@@ -1,6 +1,6 @@
 (function (exports) {
   "use strict";
-  
+
   var mapCustomStyles = [
     {
       elementType: "geometry",
@@ -268,39 +268,7 @@
   ];
 
   var markers = [];
-
-  var places = [
-    {
-      title: "Singapore",
-      coordinates: { lat: 1.3521, lng: 103.8198 },
-      desc:
-        "When it opened in 2008, the Singapore Flyer rotated in a counter-clockwise direction as viewed from the Marina Centre, but later that year was reversed on the advice of Feng Shui masters.",
-      link: "https://expatliving.sg/20-quirky-facts-about-singapore/",
-    },
-    {
-      title: "Sydney",
-      coordinates: { lat: -33.8688, lng: 151.2093 },
-      desc:
-        "15,500 light bulbs are changed every year at the Sydney Opera House. Next time you’re at the Sydney Opera House, look up and see if you can spot any burnt out light bulbs. Then be sure to point it out to the usher. I dare you.",
-      link: "https://www.sydneymovingguide.com/sydney-facts/",
-    },
-    {
-      title: "Phnom Penh",
-      coordinates: { lat: 11.5564, lng: 104.9282 },
-      desc:
-        "Ever wanted to eat a tarantula? Even if you’d never consider the possibility, many in Phnom Penh consider tarantula kebabs to be quite the delicacy. Unsurprisingly, reports are that it kind of “tastes like chicken.”",
-      link: "",
-    },
-    {
-      title: "Uluru",
-      coordinates: { lat: -25.363, lng: 131.044 },
-      desc:
-        "Uluru, also referred to as Ayers Rock, is a large sandstone rock formation in the southern part of the Northern Territory, central Australia. It lies 335 km (208 mi) south west of the nearest large town, Alice Springs; 450 km (280 mi) by road. Kata Tjuta and Uluru are the two major features of the Uluru - Kata Tjuta Natio" +
-        "nal Park. Uluru is sacred to the Pitjantjatjara and Yankunytjatjara, the Aboriginal people of the area. It has many springs, waterholes, rock caves and ancient paintings. Uluru is listed as a World Heritage Site.",
-      link: "https://en.wikipedia.org/w/index.php?title=Uluru",
-    },
-  ];
-
+  
   function initMap() {
     exports.map = new google.maps.Map(document.getElementById("map"), {
       center: {
@@ -314,33 +282,41 @@
     var map = exports.map;
     var infowindow = new google.maps.InfoWindow();
 
-    for (var i = 0; i < places.length; i++) {
-        createMarkerWithInfoWindow(places[i]);
+    createMarkers(map, infowindow);
   }
 
-  function createMarkerWithInfoWindow(place) {
-      var content = parseInfowindowContent(place);
-
-      var marker = new google.maps.Marker({
-        map: map,
-        animation: google.maps.Animation.DROP,
-        position: place.coordinates,
-        title: place.title,
+  function createMarkers(map, infowindow) {
+    fetch("/markers")
+      .then((response) => response.json())
+      .then((markers) => {
+        for (var i = 0; i < markers.length; i++) {
+          createMarkerWithInfoWindow(map, infowindow, markers[i]);
+        }
       });
+  }
 
-      google.maps.event.addListener(
-        marker,
-        "click",
-        (function (marker, content, infowindow) {
-          return function () {
-            infowindow.setContent(content);
-            infowindow.open(map, marker);
-          };
-        })(marker, content, infowindow)
-      );
+  function createMarkerWithInfoWindow(map, infowindow, place) {
+    var content = parseInfowindowContent(place);
 
-      markers.push(marker);
-    }
+    var marker = new google.maps.Marker({
+      map: map,
+      animation: google.maps.Animation.DROP,
+      position: { lat: place.lat, lng: place.lng },
+      title: place.title,
+    });
+
+    google.maps.event.addListener(
+      marker,
+      "click",
+      (function (marker, content, infowindow) {
+        return function () {
+          infowindow.setContent(content);
+          infowindow.open(map, marker);
+        };
+      })(marker, content, infowindow)
+    );
+
+    markers.push(marker);
   }
 
   function parseInfowindowContent(place) {
@@ -361,5 +337,4 @@
   }
 
   exports.initMap = initMap;
-  
 })((this.window = this.window || {}));
