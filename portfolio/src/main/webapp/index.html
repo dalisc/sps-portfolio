@@ -274,9 +274,11 @@
           There was one roll where I accidentally used the same roll twice and
           had some accidental double exposures.
         </p>
+        <div id="wrapper-center">
         <button id="view-gallery-button" onclick="toggleImageGallery()">
           View Image Gallery
         </button>
+        </div>
         <div id="image-gallery-wrapper" style="display: none;">
           <div id="image-gallery-container"></div>
         </div>
@@ -287,12 +289,10 @@
       <!-- Maps section -->
       <section id="maps">
         <h1><i class="fas fa-globe-asia"></i> Let's Discover the World</h1>
-
-        <p>I say that I love to travel but I don't think I do it enough!</p>
-
         <p>
-          Click a marker to discover something interesting about a place. Help
-          me discover the world by adding a fun fact about a place or sharing a
+          I say that I love to travel but I don't think I do it enough! Click a
+          marker to discover something interesting about a place. Help me
+          discover the world by adding a fun fact about a place or sharing a
           unique experience that you had. It could be at anywhere - a city,
           school restaurant, or park!
         </p>
@@ -302,23 +302,22 @@
             <a
               href="https://www.clubrunnersupport.com/article/1416-how-to-find-a-location-s-latitude-longitude-in-google-maps"
               target="_blank"
-              >Follow these instructions to enter the coordinated correctly.</a
+              >Follow these instructions to enter the coordinates correctly.</a
             >
             <br></br>
             <form action="/markers" method="POST">
-              <label for="lat">Latitude</label>
+              <label>Coordinates</label>
               <input
                 required
                 type="number"
                 name="lat"
-                placeholder="Latitude coordinate (with respect to the North)"
+                placeholder="Latitude"
               />
-              <label for="lng">Longitude</label>
               <input
                 required
                 type="number"
                 name="lng"
-                placeholder="Longitude coordinate (with respect to the East)"
+                placeholder="Longitude"
               />
               <label for="title">Title</label>
               <input
@@ -338,6 +337,12 @@
                 type="text"
                 name="link"
                 placeholder="(Optional) Link for more information"
+              />
+               <label for="submitter">Name</label>
+              <input
+                type="text"
+                name="submitter"
+                placeholder="(Optional) Your name/alias"
               />
               <br></br>
               <button type="submit">Submit</button>

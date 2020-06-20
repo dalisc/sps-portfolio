@@ -268,7 +268,7 @@
   ];
 
   var markers = [];
-  
+
   function initMap() {
     exports.map = new google.maps.Map(document.getElementById("map"), {
       center: {
@@ -289,6 +289,7 @@
     fetch("/markers")
       .then((response) => response.json())
       .then((markers) => {
+        console.log(markers);
         for (var i = 0; i < markers.length; i++) {
           createMarkerWithInfoWindow(map, infowindow, markers[i]);
         }
@@ -321,15 +322,18 @@
 
   function parseInfowindowContent(place) {
     var contentString =
-      '<div id="content">' +
+      '<div id="infoWindow">' +
       '<div id="siteNotice">' +
       "</div>" +
-      `<h1 id="firstHeading" class="firstHeading">${place.title}</h1>` +
-      '<div id="bodyContent">' +
+      `<h1 id="infoWindowHeading">${place.title}</h1>` +
+      '<div id="infowindowContent">' +
       `<p>${place.desc}</p>` +
       `<a style="display: ${place.link ? "inline-block" : "none"};" href="${
         place.link
       }" target="_blank">Discover more!</a>` +
+      `<p style="display: ${
+        place.submitter ? "inline-block" : "none"
+      }; font-style: italic;">Submitted by: ${place.submitter}</p>` +
       "</div>" +
       "</div>";
 

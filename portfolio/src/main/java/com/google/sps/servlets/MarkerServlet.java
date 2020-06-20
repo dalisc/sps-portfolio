@@ -45,8 +45,9 @@ public class MarkerServlet extends HttpServlet {
         String title = getParameter(request, "title", "");
         String desc = getParameter(request, "desc", "");
         String link = getParameter(request, "link", "");
+        String submitter = getParameter(request, "submitter", "");
 
-        Marker marker = new Marker(lat, lng, title, desc, link);
+        Marker marker = new Marker(lat, lng, title, desc, link, submitter);
         storeMarker(marker);
 
         // Redirect back to the HTML page.    
@@ -70,8 +71,9 @@ public class MarkerServlet extends HttpServlet {
       String title = (String) entity.getProperty("title");
       String desc = (String) entity.getProperty("desc");
       String link = (String) entity.getProperty("link");
+      String submitter = (String) entity.getProperty("submitter");
 
-      Marker marker = new Marker(lat, lng, title, desc, link);
+      Marker marker = new Marker(lat, lng, title, desc, link, submitter);
       markers.add(marker);
     }
     return markers;
@@ -97,6 +99,7 @@ public class MarkerServlet extends HttpServlet {
     markerEntity.setProperty("title", marker.getTitle());
     markerEntity.setProperty("desc", marker.getDesc());
     markerEntity.setProperty("link", marker.getLink());
+    markerEntity.setProperty("submitter", marker.getSubmitter());
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(markerEntity);

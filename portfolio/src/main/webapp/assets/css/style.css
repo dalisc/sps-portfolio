@@ -260,6 +260,10 @@ button {
 }
 
 /* Input styles for forms*/
+
+label {
+    text-transform: uppercase;
+}
 input[type=text], input[type=number] {
   width: 100%;
   padding: 12px 20px;
@@ -295,4 +299,8 @@ textarea {
     display: grid;
     grid-template-columns: 30% 70%;
     grid-gap: 1.5rem;
+}
+
+#infoWindowContent p {
+    white-space: pre;
 }
