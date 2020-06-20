@@ -5,6 +5,7 @@
     <title>Dalis Chan</title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <script type="text/javascript" src="assets/js/script.js"></script>
+    <script type="text/javascript" src="assets/js/formValidation.js"></script>
     <script type="text/javascript" src="assets/js/nav.js"></script>
     <script type="text/javascript" src="assets/js/map.js"></script>
     <!-- Google Maps API -->
@@ -288,9 +289,9 @@
 
       <!-- Maps section -->
       <section id="maps">
-        <h1><i class="fas fa-globe-asia"></i> Let's Discover the World</h1>
+        <h1><i class="fas fa-globe-asia"></i> Help Me Discover the World</h1>
         <p>
-          I say that I love to travel but I don't think I do it enough! Click a
+          I say that I love to travel but I don't think I do it enough. Click a
           marker to discover something interesting about a place. Help me
           discover the world by adding a fun fact about a place or sharing a
           unique experience that you had. It could be at anywhere - a city,
@@ -299,26 +300,30 @@
         <div class="map-container">
           <div>
             <h3>Share a place with me!</h3>
-            <a
+            <form name="mapForm" action="/markers" method="POST" onsubmit="return validateMarkerForm()">
+              <label>Coordinates</label>
+              <p style="margin: 0"><a
+              class="coordinates-instructions"
               href="https://www.clubrunnersupport.com/article/1416-how-to-find-a-location-s-latitude-longitude-in-google-maps"
               target="_blank"
-              >Follow these instructions to enter the coordinates correctly.</a
-            >
-            <br></br>
-            <form action="/markers" method="POST">
-              <label>Coordinates</label>
+              >Follow these instructions to enter the coordinates correctly.</a></p>
               <input
                 required
                 type="number"
+                step="0.000001"
                 name="lat"
                 placeholder="Latitude"
               />
+              <p class="error-message" id="lat-error"></p>
               <input
                 required
                 type="number"
+                step="0.000001"
                 name="lng"
                 placeholder="Longitude"
+                style="margin-top: -0.3rem;"
               />
+              <p class="error-message" id="lng-error"></p>
               <label for="title">Title</label>
               <input
                 required
@@ -338,6 +343,7 @@
                 name="link"
                 placeholder="(Optional) Link for more information"
               />
+              <p class="error-message" id="link-error"></p>
                <label for="submitter">Name</label>
               <input
                 type="text"
