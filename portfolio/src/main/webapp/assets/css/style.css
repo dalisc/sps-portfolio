@@ -309,3 +309,29 @@ textarea {
     grid-template-columns: 30% 70%;
     grid-gap: 1.5rem;
 }
+
+#map-wrapper {
+    position: relative;
+}
+
+#floating-panel {
+    position: absolute;
+    top: 40rem;
+    left: 10px;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+#floating-panel a {
+    cursor: pointer;
+    font-style: bold;
+    color: #10375c;
+    font-size: 18px;
+}
