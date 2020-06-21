@@ -24,10 +24,6 @@ html {
   scroll-behavior: smooth;
 }
 
-p {
-  text-align: justi
-}
-
 /* header */
 
 header {
@@ -88,6 +84,7 @@ nav ul li a.current {
 /* Main content */
 body {
   margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: min-content 1fr;
   font-family: system-ui, sans-serif;
@@ -152,7 +149,7 @@ button {
   font-size: 12px;
   text-transform: uppercase;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 #wrapper-center {
@@ -256,7 +253,7 @@ button {
   justify-content: center;
 }
 
-/* comments section */
+/* Comments section */
 
 #comments-container {
   margin-top: 50px;
@@ -276,10 +273,16 @@ button {
 }
 
 /* Input styles for forms*/
-input[type=text] {
+
+label {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+input[type=text], input[type=number] {
   width: 100%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 0.5rem 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -292,10 +295,60 @@ textarea {
   height: 100px;
   resize: none;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 0.5rem 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   font-family: inherit;
+}
+
+.coordinates-instructions {
+    font-size: 10px;
+    margin-top: -1rem;
+}
+
+.error-message {
+    font-size: 10px;
+    color: #ea4335;
+    margin-top: -0.3rem;
+}
+
+/* map section */
+#map {  
+    height: 45rem;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.map-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-gap: 1.5rem;
+}
+
+#map-wrapper {
+    position: relative;
+}
+
+#floating-panel {
+    position: absolute;
+    top: 40rem;
+    left: 10px;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+#floating-panel a {
+    cursor: pointer;
+    font-style: bold;
+    color: #10375c;
+    font-size: 18px;
 }
