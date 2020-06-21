@@ -35,7 +35,7 @@ function createCommentSection(comment) {
             <p id="username-display">${comment.username}</p>
             <p id="timestamp-display">${comment.timestamp}</p>
         </div> 
-        <p id="comments-display">${comment.comments}</p>
+        <p style="white-space: pre-line;" id="comments-display">${comment.comments}</p>
         <hr class="solid" />`;
 
     return commentWrapper;
