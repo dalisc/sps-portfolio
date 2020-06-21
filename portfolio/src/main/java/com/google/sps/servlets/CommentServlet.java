@@ -104,10 +104,8 @@ public class CommentServlet extends HttpServlet {
     return value;
   }
 
-  /**
-   * Converts the form input into a JSON string using manual String concatentation.
-   */
   private String convertCommentToJson(String username, String comments) {
     return String.format("{ username: %s, comments: %s }", username, comments);
   }
 }
+
