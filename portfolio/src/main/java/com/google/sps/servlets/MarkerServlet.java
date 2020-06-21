@@ -51,7 +51,7 @@ public class MarkerServlet extends HttpServlet {
         storeMarker(marker);
 
         // Redirect back to the HTML page.    
-        response.sendRedirect("/index.html");
+        response.sendRedirect("/#maps");
     } catch (IOException error) {
         System.out.println(error);
     }

@@ -89,7 +89,7 @@ public class CommentServlet extends HttpServlet {
     datastore.put(commentEntity);
 
     // Redirect back to the HTML page.
-    response.sendRedirect("/index.html");
+    response.sendRedirect("/#comments");
   }
 
   /**
