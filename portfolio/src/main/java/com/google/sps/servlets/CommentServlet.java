@@ -35,7 +35,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/comments")
-public class DataServlet extends HttpServlet {
+public class CommentServlet extends HttpServlet {
     
   List<String> commentsList = new ArrayList<String>();
 
@@ -72,7 +72,7 @@ public class DataServlet extends HttpServlet {
     // Get the input from the form.
     String username = getParameter(request, "username", "");
     String comments = getParameter(request, "comments", "");
-    SimpleDateFormat formatter = new SimpleDateFormat("EEE dd/MM/yyyy hh:mm z");  
+    SimpleDateFormat formatter = new SimpleDateFormat("EEE dd/MM/yyyy");  
     Date date = new Date();  
     String timestamp = formatter.format(date).toString();  
 
