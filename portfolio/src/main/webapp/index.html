@@ -5,12 +5,16 @@
     <title>Dalis Chan</title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <script type="text/javascript" src="assets/js/script.js"></script>
+    <script type="text/javascript" src="assets/js/formValidation.js"></script>
     <script type="text/javascript" src="assets/js/nav.js"></script>
     <script type="text/javascript" src="assets/js/map.js"></script>
     <!-- Google Maps API -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwdutOuo0MJNm2ENN-qmdWAvWO7QY_Z7U&callback=initMap"
-    async defer></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwdutOuo0MJNm2ENN-qmdWAvWO7QY_Z7U&callback=initMap"
+      async
+      defer
+    ></script>
     <!-- FontAwesome icons -->
     <script
       src="https://kit.fontawesome.com/bf05d78857.js"
@@ -250,20 +254,13 @@
       <section id="interests">
         <h1><i class="fas fa-camera-retro"></i> My Interests & Hobbies</h1>
         <p>
-          In my spare time I love playing tennis! I started learning when I was
-          about 12 back in my home country Cambodia. After coming to Singapore,
-          I played in my high school team and while I was at Tembusu College I
-          played with the college team too! Another thing I love is Netflix.
-          When I want to relax, Netflix and my bed are my go-to place.
-          Otherwise, I'd take out my guitar and start strumming!
-        </p>
-        <p>
-          One hobby I really wish to pick up is SCUBA diving! In the summer of
-          2019 when I was living in Indonesia, I did a fun dive in the Gili
-          islands and instantly fell in love with the underwater world. You're
-          weightless, probably much like floating in space... When travel
-          becomes somewhat normal again I plan to get my SCUBA licenses and go
-          diving anywhere I can afford.
+          In my spare time I'm either playing tennis, watching Netflix, or
+          strumming my guitar. One hobby I really wish to pick up is SCUBA
+          diving! In the summer of 2019 when I was living in Indonesia, I did a
+          fun dive in the Gili islands and instantly fell in love with the
+          underwater world. You're weightless, probably much like floating in
+          space... When travel becomes somewhat normal again I plan to get my
+          SCUBA licenses and go diving anywhere I can afford.
         </p>
         <p>
           Also, last summer, I also bought an old film camera and just pointed
@@ -271,9 +268,11 @@
           There was one roll where I accidentally used the same roll twice and
           had some accidental double exposures.
         </p>
-        <button id="view-gallery-button" onclick="toggleImageGallery()">
-          View Image Gallery
-        </button>
+        <div id="wrapper-center">
+          <button id="view-gallery-button" onclick="toggleImageGallery()">
+            View Image Gallery
+          </button>
+        </div>
         <div id="image-gallery-wrapper" style="display: none;">
           <div id="image-gallery-container"></div>
         </div>
@@ -283,8 +282,87 @@
 
       <!-- Maps section -->
       <section id="maps">
-        <h1><i class="fas fa-globe-asia"></i> Discover the World Together!</h1>
-        <div id="map"></div>
+        <h1><i class="fas fa-globe-asia"></i> Help Me Discover the World</h1>
+        <p>
+          I say that I love to travel but I don't think I do it enough. Click a
+          marker to discover something interesting about a place. Help me
+          discover the world by adding a fun fact about a place or sharing a
+          unique experience that you had. It could be at anywhere - a city,
+          school restaurant, or park!
+        </p>
+        <div class="map-container">
+          <div>
+            <h3>Share a place!</h3>
+            <form
+              name="mapForm"
+              action="/markers"
+              method="POST"
+              onsubmit="return validateMarkerForm()"
+            >
+              <label>Coordinates</label>
+              <p style="margin: 0">
+                <a
+                  class="coordinates-instructions"
+                  href="https://www.clubrunnersupport.com/article/1416-how-to-find-a-location-s-latitude-longitude-in-google-maps"
+                  target="_blank"
+                  >Follow these instructions to enter the coordinates
+                  correctly.</a
+                >
+              </p>
+              <input
+                required
+                type="number"
+                step="0.000001"
+                name="lat"
+                placeholder="Latitude"
+              />
+              <p class="error-message" id="lat-error"></p>
+              <input
+                required
+                type="number"
+                step="0.000001"
+                name="lng"
+                placeholder="Longitude"
+                style="margin-top: -0.3rem;"
+              />
+              <p class="error-message" id="lng-error"></p>
+              <label for="title">Title</label>
+              <input
+                required
+                type="text"
+                name="title"
+                placeholder="Name of city, attraction, restaurant, etc"
+              />
+              <label for="desc">Description</label>
+              <textarea
+                required
+                name="desc"
+                placeholder="A fun fact about this place or a unique experience you had"
+              ></textarea>
+              <label for="link">Link</label>
+              <input
+                type="text"
+                name="link"
+                placeholder="(Optional) Link for more information"
+              />
+              <p class="error-message" id="link-error"></p>
+              <label for="submitter">Name</label>
+              <input
+                type="text"
+                name="submitter"
+                placeholder="(Optional) Your name/alias"
+              />
+              <br></br>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+          <div id="map-wrapper">
+            <div id="floating-panel">
+              <a onclick="zoomOut()" id="zoom-out">Zoom Out</a>
+            </div>
+            <div id="map" class="map"></div>
+          </div>
+        </div>
       </section>
 
       <hr class="solid" />
@@ -300,14 +378,13 @@
             name="username"
             placeholder="Enter an alias!"
           />
-          <br /><br />
           <label for="comments">Comments</label>
           <textarea
             required
             name="comments"
             placeholder="Enter your comments!"
           ></textarea>
-          <br /><br />
+          <br></br>
           <button type="submit">Comment</button>
         </form>
         <div id="comments-container"></div>
