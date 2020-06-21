@@ -21,9 +21,6 @@ document.addEventListener("DOMContentLoaded", function() {
     getComments();
 });
 
-function zoomOut() {
-    console.log("trigger");
-}
 function addFilmImages() {
     const fileNames = [
         "1-dalis.jpg",
