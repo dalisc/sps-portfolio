@@ -33,9 +33,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
+/** Servlet that returns user comments*/
 @WebServlet("/comments")
-public class DataServlet extends HttpServlet {
+public class CommentServlet extends HttpServlet {
     
   List<String> commentsList = new ArrayList<String>();
 
@@ -72,7 +72,7 @@ public class DataServlet extends HttpServlet {
     // Get the input from the form.
     String username = getParameter(request, "username", "");
     String comments = getParameter(request, "comments", "");
-    SimpleDateFormat formatter = new SimpleDateFormat("EEE dd/MM/yyyy hh:mm z");  
+    SimpleDateFormat formatter = new SimpleDateFormat("EEE dd/MM/yyyy");  
     Date date = new Date();  
     String timestamp = formatter.format(date).toString();  
 
@@ -89,7 +89,7 @@ public class DataServlet extends HttpServlet {
     datastore.put(commentEntity);
 
     // Redirect back to the HTML page.
-    response.sendRedirect("/index.html");
+    response.sendRedirect("/#comments");
   }
 
   /**
@@ -104,10 +104,8 @@ public class DataServlet extends HttpServlet {
     return value;
   }
 
-  /**
-   * Converts the form input into a JSON string using manual String concatentation.
-   */
   private String convertCommentToJson(String username, String comments) {
     return String.format("{ username: %s, comments: %s }", username, comments);
   }
 }
+

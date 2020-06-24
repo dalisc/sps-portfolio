@@ -8,9 +8,6 @@ function validateMarkerForm() {
   lng = document.forms["mapForm"]["lng"].value;
   link = document.forms["mapForm"]["link"].value;
 
-  console.log(lat, lng, link)
-
-  // If x is Not a Number or less than one or greater than 10
   if (lat < -90 || lat > 90) {
     document.getElementById("lat-error").innerHTML = "Latitude must be between -90 and 90.";
     latError = true;
