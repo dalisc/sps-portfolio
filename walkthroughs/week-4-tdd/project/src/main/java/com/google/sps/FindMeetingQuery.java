@@ -19,6 +19,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.*;
 
 public final class FindMeetingQuery {
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) { 
@@ -44,25 +45,19 @@ public final class FindMeetingQuery {
   * @return an arraylist containing TimeRanges that aren't available for the meeting, sorted by start time
   */
   private List<TimeRange> getUnavailableTimeRanges(Collection<Event> events, MeetingRequest request) {
-    List<TimeRange> unavailableTimeRanges = new ArrayList<>();
-
-    for (Event e : events) {
-        // if there are attendees in common, that time range isn't available 
-        if (!Collections.disjoint(e.getAttendees(), request.getAttendees())) {
-            unavailableTimeRanges.add(e.getWhen());
-        }
-    }
-
-    // sort the time ranges in chronological order
-    Collections.sort(unavailableTimeRanges, TimeRange.ORDER_BY_START);
-
-    return unavailableTimeRanges;
+    return events.stream()
+        .filter(e -> !Collections.disjoint(e.getAttendees(), request.getAttendees()))
+        .map(e -> e.getWhen())
+        .sorted(TimeRange.ORDER_BY_START)
+        .collect(Collectors.toList());
   }
 
   /**
-  * Returns the time ranges for which the meeting request can happen in. 
-  * This returns the "inverse" of the unavailable timeslots.
-  * If there are no available slots, this function returns an empty arraylist.
+  * Returns the time ranges for which the meeting request can happen in.
+  * This returns the free slots of the day that are at least the duration of the meeting.
+  * This returns the "inverse" of the unavailable timeslots if all free slots
+  * are at least the duration of the meeting.
+  * If there are no free slots, this function returns an empty arraylist.
   *
   * @param unavailableTimeRanges the time ranges that are not available
   * @param duration the duration of the requested meeting
@@ -86,10 +81,9 @@ public final class FindMeetingQuery {
 
     }
 
-    int endOfDay = 1440;
     // handle the case where there are no more events for the day
-    if (endOfDay - start >= duration) {
-        availableTimeRanges.add(TimeRange.fromStartEnd(start, endOfDay, false));
+    if (TimeRange.END_OF_DAY - start + 1 >= duration) {
+        availableTimeRanges.add(TimeRange.fromStartEnd(start, TimeRange.END_OF_DAY, true));
     }
 
     return availableTimeRanges;
